@@ -1,19 +1,44 @@
+/* -----------------------------------color pallete used ---------------------------*/
+/* blackish : #222831; */
+/* greyish:  #393E46; */
+/* turquoiseType: #00ADB5; */
+/* offwhite: #EEEEEE; */
+/* link: https://colorhunt.co/palette/222831393e4600adb5eeeeee */
+
+
+
+
+
+html{
+  background-color: #222831;
+}
 .nav-left{
   margin-left: 35%;
 }
-
+nav.full-nav{
+  background-color: #393E46 !important;
+  color: #EEEEEE;
+}
+h2.logo-name{
+  color: #EEEEEE;
+  margin-left: 10%;
+}
 .socials-img{
   height: 35px;
   margin-left:10px;
-}
-.logo{
-  font-family: Montserrat;
-  font-weight: bold;
-  font-size: 50px;
 }
 
 @media (max-width: 500px) {
   .socials-img{
     height: 0;
+    margin-left: 0;
+  }
+
+}
+
+@media (hover: hover) {
+  a.nav-center:hover {
+    color: #00ADB5;
+    transition-duration: 0.5s;
   }
 }
