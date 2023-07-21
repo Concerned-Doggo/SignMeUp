@@ -12,7 +12,7 @@
 html{
   background-color: #222831;
 }
-.nav-left{
+.nav-center{
   margin-left: 35%;
 }
 nav.full-nav{
@@ -29,16 +29,19 @@ h2.logo-name{
 }
 
 @media (max-width: 500px) {
+  h2.logo-name{
+    margin-right: 50%;
+  }
   .socials-img{
     height: 0;
     margin-left: 0;
   }
-
 }
 
 @media (hover: hover) {
-  a.nav-center:hover {
+  a.nav-center-text:hover {
     color: #00ADB5;
     transition-duration: 0.5s;
+    font-size: 1.5rem;
   }
 }
