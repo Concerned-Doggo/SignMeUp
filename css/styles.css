@@ -1,0 +1,19 @@
+.nav-left{
+  margin-left: 35%;
+}
+
+.socials-img{
+  height: 35px;
+  margin-left:10px;
+}
+.logo{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+@media (max-width: 500px) {
+  .socials-img{
+    height: 0;
+  }
+}
