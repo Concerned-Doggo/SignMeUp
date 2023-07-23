@@ -11,11 +11,17 @@ app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 
+
 app.get("/", (req, res)=>{
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/word/:customeUrl", (req, res)=>{
+app.get("/letter", (req, res)=>{
+  res.sendFile(__dirname + "/views/letter.ejs");
+});
+
+
+app.get("/letter/:customeUrl", (req, res)=>{
   const word = req.params.customeUrl;
   res.render("word", {word: word});
 });

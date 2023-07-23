@@ -67,6 +67,75 @@ a.nav-center-text{
 
 /*-------------------------------------------- info tabs -----------------------------------------*/
 
+/*-------------------------------------------- word tabs -----------------------------------------*/
+.word-card{
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color:lightblue;
+  border-radius: 35px;
+  padding: 20px;
+  margin: 5% 0 0 10%;
+
+  cursor: pointer;
+}
+.img-info > img{
+  float: right;
+  margin: 0 10px 0 0;
+}
+
+.mobile-div{
+  display: flex;
+}
+
+
+
+
+/*-------------------------------------------- word tabs -----------------------------------------*/
+/*-------------------------------------------- letter card on home page -----------------------------------------*/
+.letter-box{
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+.word-heading{
+  margin-top: 2%;
+}
+
+.quiz-img{
+  width: 130px;
+  height: 150px;
+}
+/*-------------------------------------------- letter card on home page  -----------------------------------------*/
+
+/*--------------------------------------------  letter card on letter page  -----------------------------------------*/
+.letter-grid{
+  display: grid;
+  margin: 0 15% 0 12%;
+  gap: 30px;
+  grid-template-rows: 45% 45%;
+  grid-template-columns: 50% 50%;
+  grid-row: 1/ span 1;
+}
+.letter-img{
+  width: 100px;
+  height: 100px;
+}
+.letter-page-card{
+  background-color: lightblue;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+/*-------------------------------------------- letter card on letter page  -----------------------------------------*/
 @media (max-width: 500px) {
   h2.logo-name{
     margin-right: 50%;
@@ -76,6 +145,18 @@ a.nav-center-text{
     width: 0;
     margin-left: 0;
   }
+  .mobile-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .word-card{
+    width: 75%;
+    margin: 10px 5% 0 5%;
+  }
+
 }
 
 @media (max-width: 900px){
@@ -98,6 +179,9 @@ a.nav-center-text{
   }
 .bottom{
     margin-bottom: 3%;
+  }
+  .letter-grid{
+    grid-template-columns: 100%;
   }
 }
 @media (hover: hover) {
