@@ -1,0 +1,110 @@
+/* -----------------------------------color pallete used ---------------------------*/
+/* blackish : #222831; */
+/* greyish:  #393E46; */
+/* turquoiseType: #00ADB5; */
+/* lightblue */
+
+
+
+html, body{
+  background-color: #222831 !important;
+}
+
+/*--------------------------------------------navigation bar-----------------------------------------*/
+.nav-center{
+  margin-left: 35%;
+  font-weight: bold;
+}
+nav.full-nav{
+  background-color: #393E46 !important;
+  color: #EEEEEE;
+  margin-bottom: 2.5rem;
+}
+h2.logo-name{
+  color: #00ADB5;
+  margin-left: 10%;
+  font-weight:bold;
+}
+.socials-img{
+  height: 35px;
+  margin-left:10px;
+}
+a.nav-center-text{
+  font-size: 1.3rem;
+}
+
+/*--------------------------------------------navigation bar-----------------------------------------*/
+
+
+
+/*-------------------------------------------- info tabs -----------------------------------------*/
+.info-heading{
+  margin: 0 0 0 5%;
+  color: #EEEEEE;
+}
+.info-box{
+  margin-top: 2%;
+  height: 50vh;
+  display: flex;
+}
+.one-card{
+  height: 100%;
+  width: 35%;
+  margin: 0 0 0 5%;
+  background-color:lightblue;
+  border-radius: 25px;
+  padding: 3% 2% 0 2%;
+
+  cursor: pointer;
+}
+.one-card > img{
+  height: 45%;
+  margin: 3% 0 0 0;
+  float: right;
+}
+
+
+
+/*-------------------------------------------- info tabs -----------------------------------------*/
+
+@media (max-width: 500px) {
+  h2.logo-name{
+    margin-right: 50%;
+  }
+  .socials-img{
+    height: 0;
+    width: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 900px){
+
+.info-box{
+    flex-direction: column;
+  }
+.one-card{
+    width: 100%;
+    height: 50rem;
+    margin: 3% 2% 0% 0;
+    padding: 2% 5% 0 5%;
+  }
+.one-card > p{
+    margin: 0.8rem 0 0 0;
+  }
+.one-card > img{
+    height: 60%;
+    margin: 0 0 1rem 0;
+  }
+.bottom{
+    margin-bottom: 3%;
+  }
+}
+@media (hover: hover) {
+  a.nav-center-text:hover {
+    color: #00ADB5;
+    transition-duration: 0.5s;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
