@@ -17,7 +17,7 @@ app.get("/", (req, res)=>{
 });
 
 app.get("/letter", (req, res)=>{
-  res.sendFile(__dirname + "/views/letter.ejs");
+  res.render("letter",{});
 });
 
 

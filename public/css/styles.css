@@ -131,9 +131,20 @@ a.nav-center-text{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 5%;
 }
 
+.letter-page-card > img{
+  height: 45%;
+  width: 35%;
+  margin: 0 0 3% 0; 
+}
+
+.letter-card-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /*-------------------------------------------- letter card on letter page  -----------------------------------------*/
 @media (max-width: 500px) {
