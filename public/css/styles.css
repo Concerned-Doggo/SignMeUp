@@ -147,6 +147,40 @@ a.nav-center-text{
 }
 
 /*-------------------------------------------- letter card on letter page  -----------------------------------------*/
+/*-------------------------------------------- about us page  -----------------------------------------*/
+.vision-image{
+  height: 300px;
+  width: 300px;
+  /* align-self: center; */
+  
+}
+#vision-p{
+  display: flex;
+  flex-direction: column;
+  width: 50% ;
+
+}
+#vision-p > h1{
+  font-size: 60px;
+  margin: 0;
+}
+#vision-p > p{
+  font-size: 25px;
+}
+#vision-container{
+  display: flex;
+  flex-basis: 50px;
+  justify-content: center;
+  gap: 10%;
+  margin: 10% 0 0 0;
+}
+
+
+
+
+
+
+/*-------------------------------------------- about us page  -----------------------------------------*/
 @media (max-width: 500px) {
   h2.logo-name{
     margin-right: 50%;
