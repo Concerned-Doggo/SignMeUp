@@ -53,16 +53,19 @@ a.nav-center-text{
   margin: 0 0 0 5%;
   background-color:lightblue;
   border-radius: 25px;
-  padding: 3% 2% 0 2%;
+  padding: 3% 2% 2% 2%;
 
   cursor: pointer;
 }
 .one-card > img{
-  height: 45%;
+  height: 130px;
   margin: 3% 0 0 0;
   float: right;
 }
 
+.quiz-img{
+  width: 250px;
+}
 
 
 /*-------------------------------------------- info tabs -----------------------------------------*/
@@ -205,7 +208,17 @@ a.nav-center-text{
 }
 
 @media (max-width: 900px){
+/*----------------------------index .html ----------------------------------------------*/
+#index-main-container{
+  display: flex;
+  flex-direction: column;
+}
+.info-tabs{
+  display: flex;
+  flex-direction: column;
+}
 
+/*----------------------------index .html ----------------------------------------------*/
 .info-box{
     flex-direction: column;
   }
