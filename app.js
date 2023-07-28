@@ -33,6 +33,10 @@ app.get("/letter/:customeUrl", (req, res)=>{
   res.render("word", {word: word});
 });
 
+app.get("/attributions", (req, res)=>{
+  res.sendFile(__dirname + "/attributions.html");
+})
+
 
 
 

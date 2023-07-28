@@ -2,6 +2,7 @@
 
 #feedback-h1{
     color: #00ADB5;
+    align-self: flex-start;
 }
 
 #feedback-h2{
@@ -30,8 +31,8 @@
     width: 98%;
     padding: 1%;
   } */
-.feedback-container{
-padding: 8%;
+.feedback-main-container{
+padding: 4%;
 }
 .feedback-main-container{
     display: flex;
