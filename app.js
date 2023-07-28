@@ -20,6 +20,9 @@ app.get("/letter", (req, res)=>{
   res.render("letter",{});
 });
 
+app.get("/aboutus", (req, res)=>{
+  res.render("aboutus", {});
+});
 
 app.get("/letter/:customeUrl", (req, res)=>{
   const word = req.params.customeUrl;
