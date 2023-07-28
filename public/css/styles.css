@@ -162,10 +162,13 @@ a.nav-center-text{
 }
 #vision-p > h1{
   font-size: 60px;
+  color: #EEEEEE;
+
   margin: 0;
 }
 #vision-p > p{
   font-size: 25px;
+  color: #00ADB5;
 }
 #vision-container{
   display: flex;
