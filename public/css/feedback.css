@@ -1,0 +1,41 @@
+@import "./styles.css";
+
+#feedback-h1{
+    color: #00ADB5;
+}
+
+#feedback-h2{
+    color:#EEEEEE; 
+}
+
+.feedback-container{
+    display: flex;
+    gap: 38px;
+}
+.feedback-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #EEEEEE;
+    padding-top: 8%;
+}
+.par-div{
+    margin: 2% 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* input {
+    height: 100px;
+    width: 98%;
+    padding: 1%;
+  } */
+.feedback-container{
+padding: 8%;
+}
+.feedback-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -20,6 +20,10 @@ app.get("/letter", (req, res)=>{
   res.render("letter",{});
 });
 
+app.get("/feedback", (req, res)=>{
+  res.render("feedback", {});
+});
+
 app.get("/aboutus", (req, res)=>{
   res.render("aboutus", {});
 });

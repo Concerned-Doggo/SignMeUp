@@ -182,6 +182,26 @@ a.nav-center-text{
 }
 
 
+/* -------------------------- person card ----------------------------- */
+.person-grid{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 50%));
+  
+}
+.person-card{
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}           
+/* .harshal{
+  grid-row:  / ;
+} */
+
+/* -------------------------- person card ----------------------------- */
+
+
 
 
 
