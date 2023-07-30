@@ -24,7 +24,7 @@
 
 
 #aboutus-container > p {
-    width: clamp(45ch, 60ch, 70ch);
+    width: minmax(45ch, 70ch);
     font-size: 1rem;
     grid-area: paragraph;
 }
