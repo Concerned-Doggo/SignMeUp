@@ -4,6 +4,7 @@ const _ = require("lodash");
 const ejs = require("ejs");
 
 const app = express();
+const port = 8080;
 
 
 app.use(express.static("public"));
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs');
 
 
 app.get("/", (req, res)=>{
-  res.sendFile(__dirname + "/public/html/index.html");
+  res.render("index");
 });
 
 app.get("/letter", (req, res)=>{
@@ -54,8 +55,8 @@ app.get("/letter/:customeUrl", (req, res)=>{
 // });
 
 app.get("/attributions", (req, res)=>{
-  res.sendFile(__dirname + "/attributions.html");
-})
+  res.render("attributions");
+});
 
 
 
@@ -65,6 +66,6 @@ app.get("/attributions", (req, res)=>{
 
 
 
-app.listen(8080, (req, res)=>{
-  console.log("server is runnig on port 8080");
+app.listen(port, (req, res)=>{
+  console.log(`server is runnig on port ${port}`);
 })

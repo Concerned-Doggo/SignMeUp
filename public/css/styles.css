@@ -52,9 +52,8 @@ a.nav-center-text{
   width: 35%;
   margin: 0 0 0 5%;
   background-color:lightblue;
-  border-radius: 25px;
+  border-radius: 35px;
   padding: 3% 2% 2% 2%;
-
   cursor: pointer;
 }
 .one-card > img{
@@ -307,4 +306,15 @@ footer a{
     font-size: 1.5rem;
     font-weight: bold;
   }
+}
+
+
+
+.gradient-border {
+  width: 35%;
+  border-style: solid;
+  border-width: 3px;
+  border-image:
+    linear-gradient(red,
+      purple) 1 100%;
 }
