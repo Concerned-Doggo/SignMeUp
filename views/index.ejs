@@ -2,46 +2,39 @@
 <%- include("./partials/navbar.ejs") -%>
 
   <!--------------------------------------------------------------------  yt info tabs  ---------------------------------------------------------------------->
-  <div id="index-main-container">
+  <div id="index-grid">
 
-    <div class="info-tabs">
-      <h2 class="info-heading">Lorem ipsum dolor sit amet, qui minim labore adipisicin.</h2>
+      <h2 class="info-heading grid-span-2">Lorem ipsum dolor sit amet, qui minim labore adipisicin.</h2>
 
-      <div class="info-box">
         <div class="one-card" onclick="window.open('https://youtu.be/0FcwzMq4iWg', '_blank').focus">
-          <img src="./images/socials/yt-into-video.png" alt="yt video thumbnail">
+          <img src="/images/socials/yt-into-video.png" alt="yt video thumbnail">
           <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
             pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
           </p>
         </div>
-        <div class="one-card bottom">
-          <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
-            pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
-          </p>
-        </div>
-      </div>
 
-    </div>
-    <!--------------------------------------------------------------------  yt info tabs  ---------------------------------------------------------------------->
+        <div class="one-card">
+          <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
+            pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
+          </p>
+        </div>
+
 
     <!--------------------------------------------------------------------  words and letters --------------------------------------------------------------------->
-    <div class="info-tabs">
-      <h2 class="info-heading word-heading">Lorem ipsum dolor sit amet, qui minim labore adipisicin.</h2>
+      <h2 class="info-heading grid-span-2">Lorem ipsum dolor sit amet, qui minim labore adipisicin.</h2>
 
-      <div class="info-box letter-box ">
-        <div class="one-card letter-card js-card" onclick="letterPageJS()">
+        <div class="one-card js-card" onclick="letterPageJS()">
           <img src="/images/alphabets.jpeg" alt="yt video thumbnail">
           <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
             pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud.</p>
         </div>
-        <div class="one-card bottom letter-card">
+
+        <div class="one-card ">
           <img src="/images/quiz.png" alt="" class="quiz-img">
           <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
             pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
           </p>
         </div>
-      </div>
-    </div>
 
   </div>
 
@@ -49,4 +42,9 @@
 
   <!--------------------------------------------------------------------  words and letters --------------------------------------------------------------------->
  
+  <script>
+    function letterPageJS() {
+      window.location.assign("/letter")
+    }
+  </script>
 <%- include("./partials/footer.ejs") -%>

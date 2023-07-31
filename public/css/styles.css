@@ -34,84 +34,40 @@ a.nav-center-text{
 }
 
 /*--------------------------------------------navigation bar-----------------------------------------*/
+/*-------------------------------------------- index grid -----------------------------------------*/
 
+#index-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem 3rem 1rem 3rem;
+}
 
+.grid-span-2{
+  grid-column: span 2;
+}
 
+/*-------------------------------------------- index grid -----------------------------------------*/
 /*-------------------------------------------- info tabs -----------------------------------------*/
 .info-heading{
-  margin: 0 0 0 5%;
   color: #EEEEEE;
 }
-.info-box{
-  margin-top: 2%;
-  height: 50vh;
-  display: flex;
-}
+
 .one-card{
   height: 100%;
-  width: 35%;
-  margin: 0 0 0 5%;
   background-color:lightblue;
   border-radius: 35px;
-  padding: 3% 2% 2% 2%;
+  padding: 5% 5% 5% 5%;
   cursor: pointer;
 }
+
 .one-card > img{
   height: 130px;
   margin: 3% 0 0 0;
   float: right;
 }
 
-.quiz-img{
-  width: 250px;
-}
-
-
 /*-------------------------------------------- info tabs -----------------------------------------*/
-
-/*-------------------------------------------- word tabs -----------------------------------------*/
-.word-card{
-  height: 100%;
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color:lightblue;
-  border-radius: 35px;
-  padding: 20px;
-  margin: 5% 0 0 10%;
-
-  cursor: pointer;
-}
-.img-info > img{
-  float: right;
-  margin: 0 10px 0 0;
-}
-
-.mobile-div{
-  display: flex;
-}
-
-
-
-
-/*-------------------------------------------- word tabs -----------------------------------------*/
-/*-------------------------------------------- letter card on home page -----------------------------------------*/
-.letter-box{
-  margin-top: 2%;
-  margin-bottom: 5%;
-}
-.word-heading{
-  margin-top: 2%;
-}
-
-.quiz-img{
-  width: 130px;
-  height: 150px;
-}
-/*-------------------------------------------- letter card on home page  -----------------------------------------*/
 
 /*--------------------------------------------  letter card on letter page  -----------------------------------------*/
 .letter-grid{
@@ -136,12 +92,6 @@ a.nav-center-text{
   padding: 5%;
 }
 
-.letter-page-card > img{
-  height: 45%;
-  width: 35%;
-  margin: 0 0 3% 0; 
-}
-
 .letter-card-img{
   display: flex;
   align-items: center;
@@ -149,63 +99,17 @@ a.nav-center-text{
 }
 
 /*-------------------------------------------- letter card on letter page  -----------------------------------------*/
-/*-------------------------------------------- about us page  -----------------------------------------*/
-.vision-image{
-  height: 300px;
-  width: 300px;
-  /* align-self: center; */
-  
-}
-#vision-p{
-  display: flex;
-  flex-direction: column;
-  width: 50% ;
-
-}
-#vision-p > h1{
-  font-size: 60px;
-  color: #EEEEEE;
-
-  margin: 0;
-}
-#vision-p > p{
-  font-size: 25px;
-  color: #00ADB5;
-}
-#vision-container{
-  display: flex;
-  flex-basis: 50px;
-  justify-content: center;
-  gap: 10%;
-  margin: 10% 0 0 0;
-}
-
 
 /* -------------------------- person card ----------------------------- */
 .person-grid{
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 50%));
-  
+  grid-template-columns: repeat(2, minmax(240px, 50%));
 }
-.person-card{
-  background-color: red;
-  height: 100px;
-  width: 100px;
-}           
-/* .harshal{
-  grid-row:  / ;
-} */
 
 /* -------------------------- person card ----------------------------- */
 
-
-
-
-
-
-/*-------------------------------------------- about us page  -----------------------------------------*/
 /*-------------------------------------------- footer -----------------------------------------*/
 
 #footer-container{
@@ -235,12 +139,8 @@ footer a{
   width: 60px;
 }
 
-
-
-
-
-
 /*-------------------------------------------- footer  -----------------------------------------*/
+
 @media (max-width: 500px) {
   h2.logo-name{
     margin-right: 50%;
@@ -264,41 +164,15 @@ footer a{
 
 }
 
-@media (max-width: 900px){
-/*----------------------------index .html ----------------------------------------------*/
-#index-main-container{
-  display: flex;
-  flex-direction: column;
-}
-.info-tabs{
-  display: flex;
-  flex-direction: column;
+@media (max-width: 650px){
+  .letter-page-card{
+    grid-column: span 2;
+  }
+  .one-card{
+    grid-column: span 2;
+  }
 }
 
-/*----------------------------index .html ----------------------------------------------*/
-.info-box{
-    flex-direction: column;
-  }
-.one-card{
-    width: 100%;
-    height: 50rem;
-    margin: 3% 2% 0% 0;
-    padding: 2% 5% 0 5%;
-  }
-.one-card > p{
-    margin: 0.8rem 0 0 0;
-  }
-.one-card > img{
-    height: 60%;
-    margin: 0 0 1rem 0;
-  }
-.bottom{
-    margin-bottom: 3%;
-  }
-  .letter-grid{
-    grid-template-columns: 100%;
-  }
-}
 @media (hover: hover) {
   a.nav-center-text:hover {
     color: #00ADB5;
@@ -306,15 +180,4 @@ footer a{
     font-size: 1.5rem;
     font-weight: bold;
   }
-}
-
-
-
-.gradient-border {
-  width: 35%;
-  border-style: solid;
-  border-width: 3px;
-  border-image:
-    linear-gradient(red,
-      purple) 1 100%;
 }
