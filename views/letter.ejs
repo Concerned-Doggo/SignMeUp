@@ -4,8 +4,8 @@
     <div class="letter-grid">
 
       <% for(let i = 0; i < 7; i += 2){ %>
-       <div class="letter-page-card" onclick="letterPageJS('<%= letter[i] %>-<%= letter[i+1] %>')">
-        <div class="letter-card-img">
+       <div class="letter-page-card">
+        <div class="letter-card-img" onclick="letterPageJS('<%= letter[i] %>-<%= letter[i+1] %>')">
           
           <img src="/images/letters/<%= letter[i] %>.png" alt="yt video thumbnail" class="letter-img">
           <img src="/images/letters/<%= letter[i+1] %>.png" alt="yt video thumbnail" class="letter-img">
@@ -14,8 +14,8 @@
         <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .</p>
       </div>
 
-      <div class="letter-page-card" onclick="letterPageJS('<%= letter[i] %>-<%= letter[i+1] %>')">
-        <div class="letter-card-img">
+      <div class="letter-page-card" >
+        <div class="letter-card-img" onclick="quizPageJS('<%= letter[i] %>-<%= letter[i+1] %>')">
 
           <img src="/images/letters/<%= letter[i] %>.png" alt="yt video thumbnail" class="letter-img">
           <img src="/images/letters/<%= letter[i+1] %>.png" alt="yt video thumbnail" class="letter-img">
@@ -30,7 +30,11 @@
       
 <script>
   function letterPageJS(word) {
-    window.location.assign(`/letter/${word}`)
+    window.location.assign(`/letter/${word}`);
+  }
+
+  function quizPageJS(word) {
+    window.location.assign(`/quiz/${word}`);
   }
 </script>
 

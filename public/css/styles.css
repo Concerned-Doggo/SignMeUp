@@ -97,6 +97,9 @@ a.nav-center-text{
   align-items: center;
   justify-content: center;
 }
+.letter-card-img:hover{
+  cursor: pointer;
+}
 
 /*-------------------------------------------- letter card on letter page  -----------------------------------------*/
 
@@ -130,10 +133,7 @@ footer a{
   gap: 30%;
   justify-content: center;
 }
-#footer-img  img{
-  height: 40px;
-  width: 40px;
-}
+
 #footer-img img:hover{
   height: 60px;
   width: 60px;
@@ -149,17 +149,6 @@ footer a{
     height: 0;
     width: 0;
     margin-left: 0;
-  }
-  .mobile-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  .word-card{
-    width: 75%;
-    margin: 10px 5% 0 5%;
   }
 
 }
