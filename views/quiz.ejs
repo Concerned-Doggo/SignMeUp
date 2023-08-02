@@ -3,28 +3,44 @@
 
 <div class="letter-grid">
         
-        <% letterArray.forEach(letter => { %>
+        <% for(let i = 0; i < letterArray.length; i++){%>
 
             <div class="letter-page-card">
     
                     <video width="200" height="200" controls>
-                        <source src="/videos/<%= letter %>.mp4" type="">
+                        <source src="/videos/<%= letterArray[i] %>.mp4" type="">
                     </video>
-                    <div class="options-grid"">
-                        <button type="submit"><%= options[0][0] %></button>
-                        <button type="submit"><%= options[0][1] %></button> 
-                        <button type="submit"><%= options[0][2] %></button>
-                        <button type="submit"><%= options[0][3] %></button>
+                    <form action="/quiz/<%= customUrl %>" method="post">
+
+                        <% console.log(i) %>
+                        <% console.log(options[i][0]) %>
+                        <div class="options-grid"">
+                         <input type="radio" name="ans" value="<%= options[i][0]%>">
+
+                        <label for="">
+                            <%= options[i][0] %> 
+                        </label><br>
+
+                        <input type="radio" id="css" name="ans" value="<%=options[i][1]%>">
+
+                        <label for="">
+                            <%= options[i][1] %>
+                        </label><br>
+
+                        <input type="radio" id="javascript" name="ans" value="<%= options[i][2]%>">
+
+                        <label for="">
+                            <%= options[i][2] %>
+                        </label>
                     </div>
-                    <!-- <input type="text" placeholder="Your Ans">
-                    <button type="submit" onclick="">Submit</button> -->
+                    <!-- <input type="text" placeholder="Yiur Ans"> -->
+                        <button type="submit" onclick="">Submit</button> 
+                </form>
             </div>
-        <% }) %>
+        <% } %>>
 </div>
 
 
 
-<script>
-    const increment = i => i++;
-</script>
+
 <%- include("./partials/footer.ejs") -%>

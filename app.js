@@ -81,11 +81,35 @@ const shuffle = function (array) {
 //   return options;
 // }
 
-const generateOptions = function(letterArray, options){
-  
+// const generateOptions = function(array, options){
+//   for(let i = 0; i < array.length; i++){
+//     let optionRow = [-1, -1, -1, -1];
+//     optionRow[0] = array[i];
+//     optionRow[1] = array[Math.floor(Math.random()+1) % array.length];
+//     optionRow[2] = array[Math.floor(Math.random()+2) % array.length];
+//     optionRow[3] = array[Math.floor(Math.random()+3) % array.length];
+//     shuffle(optionRow);
+//     options.push(optionRow);
+//   }//forloop end
+// return options;
+// }
+
+const generateOptions = function(array, options){
+  // (i + constatn) % array.length
+
+  let n = array.length;
+  for(let i = 0; i < n; i++){
+    let optionRow = [-1, -1, -1];
+    optionRow[0] = array[i];
+    optionRow[1] = array[(i+4) % n];
+    optionRow[2] = array[(i+5) % n];
+    shuffle(optionRow);
+    options.push(optionRow);
+  }
+  return options;
 }
 
-
+generateOptions([1],[1]);
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -120,12 +144,17 @@ app.get("/quiz/:customUrl", (req, res) => {
   const customUrl = req.params.customUrl;
   let letterArray = switchFunc(customUrl);
   shuffle(letterArray);
-  console.log(letterArray);
+  // console.log(letterArray);
 
-  let options=[];
+  let options = [];
   generateOptions(letterArray,options)
   
-  res.render("quiz", {letterArray: letterArray, options: options});
+  console.log(options);
+  res.render("quiz", {letterArray: letterArray, options: options, customUrl: customUrl});
+});
+app.post("/quiz/:cutomUrl", (req, res) => {
+  console.log(req.body.ans);
+
 });
 
 
