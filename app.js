@@ -44,7 +44,6 @@ const shuffle = function (array) {
 
   return array;
 }
-
 // const generateOptions = function(array, options){
 //   let i = array[0];
 //   let optionRow = ['-1', '-1', '-1', '-1'];
@@ -93,16 +92,21 @@ const shuffle = function (array) {
 //   }//forloop end
 // return options;
 // }
-
+let letterArray = [];
+let options = [];
 const generateOptions = function(array, options){
   // (i + constatn) % array.length
 
   let n = array.length;
   for(let i = 0; i < n; i++){
-    let optionRow = [-1, -1, -1];
-    optionRow[0] = array[i];
-    optionRow[1] = array[(i+4) % n];
-    optionRow[2] = array[(i+5) % n];
+    let optionRow = [
+      {text: 'a', correct: false},
+      {text: 'a', correct: false},
+      {text: 'a', correct: false}
+    ];
+    optionRow[0] = {text: array[i], correct: true}; 
+    optionRow[1] = {text: array[(i+4) % n], correct: false};
+    optionRow[2] = {text: array[(i+5) % n], correct: false};
     shuffle(optionRow);
     options.push(optionRow);
   }
@@ -110,6 +114,7 @@ const generateOptions = function(array, options){
 }
 
 generateOptions([1],[1]);
+
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -142,22 +147,44 @@ app.get("/attributions", (req, res) => {
 
 app.get("/quiz/:customUrl", (req, res) => {
   const customUrl = req.params.customUrl;
-  let letterArray = switchFunc(customUrl);
+  letterArray = switchFunc(customUrl);
   shuffle(letterArray);
   // console.log(letterArray);
 
   let options = [];
   generateOptions(letterArray,options)
   
-  console.log(options);
-  res.render("quiz", {letterArray: letterArray, options: options, customUrl: customUrl});
+  // options[1].forEach(option=>{
+
+  //   console.log(option.text);
+  // })
+  // console.log(__dirname);
+  console.log(req.url);
+  res.sendFile(__dirname + "/public/html/temp-quiz.html");
 });
-app.post("/quiz/:cutomUrl", (req, res) => {
-  console.log(req.body.ans);
+// app.post("/quiz/:customUrl", (req, res) => {
+//   // console.log(req.params.customUrl);
+//   // console.log(req.body.ans);
 
-});
+//   let counter = parseInt(req.params.customUrl);
 
+//   // console.log(counter);
+//   // console.log(counter+=1);
+//   // console.log(typeof counter);
+//   const customUrl = (req.params.customUrl);
+//   letterArray = switchFunc(customUrl);
+//   shuffle(letterArray);
+//   // console.log(letterArray);
 
+//   let options = [];
+//   generateOptions(letterArray,options);
+
+//   res.render("temp-quiz");
+// });
+
+app.get("/quiz/quiz.js", (req, res) => {
+  res.sendFile(__dirname + "/quiz.js");
+})
 
 
 app.listen(port, (req, res) => {

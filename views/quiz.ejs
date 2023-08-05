@@ -12,25 +12,23 @@
                     </video>
                     <form action="/quiz/<%= customUrl %>" method="post">
 
-                        <% console.log(i) %>
-                        <% console.log(options[i][0]) %>
                         <div class="options-grid"">
                          <input type="radio" name="ans" value="<%= options[i][0]%>">
 
                         <label for="">
-                            <%= options[i][0] %> 
+                            <%= options[i][0].option %> 
                         </label><br>
 
                         <input type="radio" id="css" name="ans" value="<%=options[i][1]%>">
 
                         <label for="">
-                            <%= options[i][1] %>
+                            <%= options[i][1].option %>
                         </label><br>
 
                         <input type="radio" id="javascript" name="ans" value="<%= options[i][2]%>">
 
                         <label for="">
-                            <%= options[i][2] %>
+                            <%= options[i][2].option %>
                         </label>
                     </div>
                     <!-- <input type="text" placeholder="Yiur Ans"> -->

@@ -1,0 +1,25 @@
+<%- include("./partials/header.ejs") -%>
+    <%- include("./partials/navbar.ejs") -%>
+
+        <div class="letter-grid">
+
+            <% for(let i=0; i < letterArray.length; i++){ %>
+
+
+                <div class="letter-page-card">
+
+                    <video width="200" height="200" controls>
+                        <source src="/videos/<%= letterArray[i] %>.mp4" type="">
+                    </video>
+                    <div id="option-grid">
+                        <button class="option-button">option 1</button>
+                        <button class="option-button">option 2</button>
+                        <button class="option-button">option 3</button>
+                    </div>
+                    <button id="next-btn">next</button>
+
+                </div>
+                <% } %>
+        </div>
+        <script src="../quiz.js"></script>
+        <%- include("./partials/footer.ejs") -%>

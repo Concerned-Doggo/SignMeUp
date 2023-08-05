@@ -3,3 +3,17 @@
     grid-template-columns: 1fr;
     gap: 4rem;
 }
+
+
+.option-button{
+    color: white;
+    background-color: black;
+}
+.option-button:hover{
+    color: red;
+    background-color: azure;
+}
+#next-btn{
+    cursor: pointer;
+    display: none;
+}

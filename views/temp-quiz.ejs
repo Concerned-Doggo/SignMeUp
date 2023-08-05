@@ -1,0 +1,24 @@
+<%- include("./partials/header.ejs") -%>
+<%- include("./partials/navbar.ejs") -%>
+
+        <div class="letter-grid">
+
+
+            letterArray.forEach
+
+                <div class="letter-page-card">
+
+                    <video width="200" height="200" controls id="question">
+                        <source src="letterArray[i]" type="" id="question-src">
+                    </video>
+                    <div id="ans-btns">
+                        <button class="option-button">option 1</button>
+                        <button class="option-button">option 2</button>
+                        <button class="option-button">option 3</button>
+                    </div>
+                    <button id="next-btn">next</button>
+
+                </div>
+        </div>
+        <script src="../quiz.js"></script>
+<%- include("./partials/footer.ejs") -%>
