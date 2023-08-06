@@ -15,6 +15,7 @@ html, body{
   margin-left: 35%;
   font-weight: bold;
 }
+
 nav.full-nav{
   background-color: #393E46 !important;
   color: #EEEEEE;
@@ -31,6 +32,7 @@ h2.logo-name{
 }
 a.nav-center-text{
   font-size: 1.3rem;
+  color: #EEEEEE;
 }
 
 /*--------------------------------------------navigation bar-----------------------------------------*/

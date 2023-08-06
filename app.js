@@ -11,6 +11,36 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+mongoose.connect('mongodb://127.0.0.1/test')
+
+const questionSchema = new mongoose.Schema({
+   question: String,
+   ans: [
+    {
+      option0: String,
+      option1: String,
+      option2: String,
+      option3: String,
+    }
+  ]
+});
+
+const Question = new mongoose.model("Question", questionSchema);
+
+const question1 = new Question({
+  question: "a",
+  ans:[
+    {
+      option0: "a",
+      option1: "d",
+      option2: "c",
+      option3: "b",
+    },
+  ]
+});
+
+// question1.save();
+
 const switchFunc = function (customUrl) {
   letterArray = [];
   switch (customUrl) {
@@ -92,6 +122,7 @@ const shuffle = function (array) {
 //   }//forloop end
 // return options;
 // }
+
 let letterArray = [];
 let options = [];
 const generateOptions = function(array, options){
@@ -153,7 +184,7 @@ app.get("/quiz/:customUrl", (req, res) => {
 
   let options = [];
   generateOptions(letterArray,options)
-  
+
   // options[1].forEach(option=>{
 
   //   console.log(option.text);
@@ -162,29 +193,6 @@ app.get("/quiz/:customUrl", (req, res) => {
   console.log(req.url);
   res.sendFile(__dirname + "/public/html/temp-quiz.html");
 });
-// app.post("/quiz/:customUrl", (req, res) => {
-//   // console.log(req.params.customUrl);
-//   // console.log(req.body.ans);
-
-//   let counter = parseInt(req.params.customUrl);
-
-//   // console.log(counter);
-//   // console.log(counter+=1);
-//   // console.log(typeof counter);
-//   const customUrl = (req.params.customUrl);
-//   letterArray = switchFunc(customUrl);
-//   shuffle(letterArray);
-//   // console.log(letterArray);
-
-//   let options = [];
-//   generateOptions(letterArray,options);
-
-//   res.render("temp-quiz");
-// });
-
-app.get("/quiz/quiz.js", (req, res) => {
-  res.sendFile(__dirname + "/quiz.js");
-})
 
 
 app.listen(port, (req, res) => {
