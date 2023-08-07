@@ -25,6 +25,7 @@ const questionSchema = new mongoose.Schema({
   ]
 });
 
+// model for question schema
 const Question = new mongoose.model("Question", questionSchema);
 
 const question1 = new Question({
@@ -158,6 +159,11 @@ app.get("/letter", (req, res) => {
 app.get("/feedback", (req, res) => {
   res.render("feedback", {});
 });
+
+app.post("/feedback", (req, res) =>{
+  console.log(req.body.email);
+  console.log(req.body.feed);
+})
 
 app.get("/aboutus", (req, res) => {
   res.render("aboutus", {});

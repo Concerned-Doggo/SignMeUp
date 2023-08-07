@@ -9,22 +9,32 @@
         <img src="/images/feedback/feedback.png" alt="">
 
         <div class="feedback-form">
-            <form action="">
+            <form action="" >
                 <div class="par-div">
+
                 <label for="feedback-email">Your Email 📧</label>
-                <input type="text" id="feedback-email" placeholder="example@mail.com">
+                <input type="email" id="userEmail" name="email" placeholder="example@mail.com">
+
                 </div>
                 <div class="par-div">
                 <label for="feedback-p">
                     Feedback
                 </label>
-                <textarea type="text" name="" id="feedback-p" placeholder="This site ......." size="50" cols="65" rows="15"></textarea>
+                <textarea type="text" id="userMsg" name="feed" placeholder="This site ......." size="50" cols="65" rows="15"></textarea>
 
                 </div>
+                <button  onclick="mailFeedback()"> <a> submit</a> </button>
             </form>
         </div>
 
     </div>
 </div>
 
+<script>
+  function mailFeedback(){
+    const userEmail = document.getElementById("userEmail").value;
+    const userMsg = document.getElementById("userMsg").value;
+    document.location.href = `mailto:example@mail.com?subject=feedback-by-${userEmail}&body=${userMsg}`;
+  }
+</script>
 <%- include("./partials/footer.ejs") -%>
