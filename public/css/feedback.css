@@ -13,6 +13,9 @@
     display: flex;
     gap: 38px;
 }
+.feedback-container img{
+  width: 30vw;
+}
 .feedback-form{
     display: flex;
     flex-direction: column;
@@ -32,11 +35,37 @@
     padding: 1%;
   } */
 .feedback-main-container{
-padding: 4%;
+  padding: 4%;
 }
 .feedback-main-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.submit-button{
+  border-radius: 35px;
+  margin-top: 5%;
+  background-color: lightblue;
+  padding: 1% 2% ;
+  border: 1px solid #393E46;
+}
+
+
+@media screen and (max-width: 940px){
+  .feedback-container{
+    flex-direction: column;
+    gap:10px;
+    padding: 0;
+  }
+  .feedback-form{
+    width: 70vw;
+  }
+  .feedback-container img{
+    width: 40vw;
+  }
+  #feedback-h2, #feedback-h1{
+    /* align-self:r; */
+    padding-left: 10%;
+  }
 }
