@@ -199,6 +199,11 @@ app.get("/quiz/:customUrl", (req, res) => {
   console.log(req.url);
   res.sendFile(__dirname + "/public/html/temp-quiz.html");
 });
+app.get("/register", (req,res) => {
+  res.render("register")
+})
+
+
 
 
 app.listen(port, (req, res) => {
