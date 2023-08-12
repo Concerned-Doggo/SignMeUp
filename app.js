@@ -186,22 +186,26 @@ app.get("/quiz/:customUrl", (req, res) => {
   const customUrl = req.params.customUrl;
   letterArray = switchFunc(customUrl);
   shuffle(letterArray);
-  // console.log(letterArray);
 
   let options = [];
   generateOptions(letterArray,options)
 
-  // options[1].forEach(option=>{
-
-  //   console.log(option.text);
-  // })
-  // console.log(__dirname);
-  console.log(req.url);
   res.sendFile(__dirname + "/public/html/temp-quiz.html");
 });
 app.get("/register", (req,res) => {
-  res.render("register")
-})
+  res.render("register");
+});
+
+app.post("/register", (req,res)=>{
+  console.log(req.body.username);
+  console.log(req.body.password);
+  console.log(req.body.confirmPassword);
+
+});
+
+app.get("/login", (req, res)=>{
+  res.render("login");
+});
 
 
 
