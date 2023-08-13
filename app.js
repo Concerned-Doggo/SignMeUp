@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const ejs = require("ejs");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const app = express();
 const port = 8080;
@@ -11,7 +13,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://127.0.0.1/test')
+mongoose.connect('mongodb://127.0.0.1/SignMeUp')
 
 const questionSchema = new mongoose.Schema({
    question: String,
@@ -25,22 +27,15 @@ const questionSchema = new mongoose.Schema({
   ]
 });
 
-// model for question schema
-const Question = new mongoose.model("Question", questionSchema);
-
-const question1 = new Question({
-  question: "a",
-  ans:[
-    {
-      option0: "a",
-      option1: "d",
-      option2: "c",
-      option3: "b",
-    },
-  ]
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
 });
 
-// question1.save();
+
+// model for question schema
+const Question = new mongoose.model("Question", questionSchema);
+const User = new mongoose.model("User", userSchema);
 
 const switchFunc = function (customUrl) {
   letterArray = [];
@@ -192,22 +187,69 @@ app.get("/quiz/:customUrl", (req, res) => {
 
   res.sendFile(__dirname + "/public/html/temp-quiz.html");
 });
+
+
+
 app.get("/register", (req,res) => {
   res.render("register");
 });
 
 app.post("/register", (req,res)=>{
-  console.log(req.body.username);
-  console.log(req.body.password);
-  console.log(req.body.confirmPassword);
+  const username = (req.body.username);
+  const password = (req.body.password);
+  const confirmPassword = (req.body.confirmPassword);
+
+  if(password == confirmPassword){
+    
+    bcrypt.hash(confirmPassword, saltRounds, function(err, hash) {
+      // Store hash in your password DB.
+      const user = new User({
+        username: username,
+        password: hash,
+      });
+
+      user.save()
+        .then(res.redirect("/"))
+        .catch(err => console.log(err));
+    });
+  }
 
 });
+
+
 
 app.get("/login", (req, res)=>{
   res.render("login");
 });
 
+app.post("/login", (req, res)=>{
+  const username = (req.body.username);
+  const password = (req.body.password);  
 
+  User.findOne({username: username})
+    .then(foundUser =>{
+      bcrypt.compare(password, foundUser.password, function(err, result) {
+        // result == true
+        if(err){console.log(err);}
+        if(result){
+          console.log("ok")
+          res.redirect(`/user/${username}`);
+        }
+        else{
+          console.log("password or username is incorrect");
+          res.redirect("/login");
+        }
+      })
+    })
+    .catch(err => console.log(err))
+
+  console.log("is it ok?");
+});
+
+app.get("/user/:customUrl", (req, res) => {
+  const username = req.params.customUrl;
+  res.render("user", {username: username});
+})
 
 
 app.listen(port, (req, res) => {
