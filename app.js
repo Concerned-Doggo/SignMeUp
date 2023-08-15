@@ -1,9 +1,12 @@
+const dotenv = require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const ejs = require("ejs");
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const session = require("express-session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
+
 
 const app = express();
 const port = 8080;
@@ -13,29 +16,53 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 mongoose.connect('mongodb://127.0.0.1/SignMeUp')
 
-const questionSchema = new mongoose.Schema({
-   question: String,
-   ans: [
-    {
-      option0: String,
-      option1: String,
-      option2: String,
-      option3: String,
-    }
-  ]
-});
+// const questionSchema = mongoose.Schema({
+//    question: String,
+//    ans: [
+//     {
+//       option0: String,
+//       option1: String,
+//       option2: String,
+//       option3: String,
+//     }
+//   ]
+// });
 
-const userSchema = new mongoose.Schema({
+const userSchema = mongoose.Schema({
   username: String,
   password: String,
 });
 
+userSchema.plugin(passportLocalMongoose);
+
+
 
 // model for question schema
-const Question = new mongoose.model("Question", questionSchema);
-const User = new mongoose.model("User", userSchema);
+// const Question = new mongoose.model("Question", questionSchema);
+
+const User = mongoose.model("User", userSchema);
+
+// inititalizing passport for our User model
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
+
+
 
 const switchFunc = function (customUrl) {
   letterArray = [];
@@ -142,17 +169,42 @@ const generateOptions = function(array, options){
 
 generateOptions([1],[1]);
 
+
 app.get("/", (req, res) => {
-  res.render("index");
+  let loggedIn = 0;
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+  req.isAuthenticated() === true ? loggedIn = 1: loggedIn = 0;
+  
+  res.render("index", {username: username, loggedIn: loggedIn});
 });
 
+
+
+
+
 app.get("/letter", (req, res) => {
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
   const letter = ['a', 'f', 'g', 'l', 'm', 'r', 's', 'z']
-  res.render("letter", { letter: letter });
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+  res.render("letter", { letter: letter, loggedIn: loggedIn, username: username});
 });
 
 app.get("/feedback", (req, res) => {
-  res.render("feedback", {});
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+
+  res.render("feedback", {loggedIn: loggedIn, username: username});
 });
 
 app.post("/feedback", (req, res) =>{
@@ -161,19 +213,36 @@ app.post("/feedback", (req, res) =>{
 })
 
 app.get("/aboutus", (req, res) => {
-  res.render("aboutus", {});
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+ 
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+ res.render("aboutus", {loggedIn: loggedIn, username: username});
 });
 
 app.get("/letter/:customeUrl", (req, res) => {
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+
   const customUrl = req.params.customeUrl;
 
   const letterArray = switchFunc(customUrl);
 
-  res.render("GOL", { letterArray: letterArray });
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+
+  res.render("GOL", { letterArray: letterArray , loggedIn: loggedIn, username: username});
 });
 
 app.get("/attributions", (req, res) => {
-  res.render("attributions");
+ 
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+ res.render("attributions", {loggedIn: loggedIn, username: username});
 });
 
 
@@ -191,66 +260,51 @@ app.get("/quiz/:customUrl", (req, res) => {
 
 
 app.get("/register", (req,res) => {
-  res.render("register");
+  
+  res.render("register",{loggedIn: 0, username: ""});
 });
 
 app.post("/register", (req,res)=>{
-  const username = (req.body.username);
-  const password = (req.body.password);
-  const confirmPassword = (req.body.confirmPassword);
-
-  if(password == confirmPassword){
-    
-    bcrypt.hash(confirmPassword, saltRounds, function(err, hash) {
-      // Store hash in your password DB.
-      const user = new User({
-        username: username,
-        password: hash,
+  User.register({username: req.body.username}, req.body.password)
+    .then(() => {
+      const authenticate = passport.authenticate('local');
+      authenticate(req, res, ()=>{
+        res.redirect("/");
       });
-
-      user.save()
-        .then(res.redirect("/"))
-        .catch(err => console.log(err));
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("/register");
     });
-  }
-
 });
-
-
 
 app.get("/login", (req, res)=>{
-  res.render("login");
+  res.render("login", {username: "", loggedIn: 0});
 });
 
-app.post("/login", (req, res)=>{
-  const username = (req.body.username);
-  const password = (req.body.password);  
-
-  User.findOne({username: username})
-    .then(foundUser =>{
-      bcrypt.compare(password, foundUser.password, function(err, result) {
-        // result == true
-        if(err){console.log(err);}
-        if(result){
-          console.log("ok")
-          res.redirect(`/user/${username}`);
-        }
-        else{
-          console.log("password or username is incorrect");
-          res.redirect("/login");
-        }
-      })
-    })
-    .catch(err => console.log(err))
-
-  console.log("is it ok?");
-});
+app.post('/login',passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
+  function(req, res) {
+    res.redirect("/");
+  });
 
 app.get("/user/:customUrl", (req, res) => {
-  const username = req.params.customUrl;
-  res.render("user", {username: username});
-})
+  
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
 
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+
+  res.render("user", {username: username, loggedIn: loggedIn});
+});
+
+app.post('/logout', function(req, res, next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 app.listen(port, (req, res) => {
   console.log(`server is runnig on port ${port}`);
