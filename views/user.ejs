@@ -1,11 +1,39 @@
 <%- include("./partials/header.ejs") -%>
 <%- include("./partials/navbar.ejs") -%>
 
-<h1 style="color:white;"><%= username %> </h1>
+
+<div class="user-grid">
+
+    <div class="user-card letter-page-card">
+        <img src="/images/person/man.png">
+        <h1 style="color:white;"><%= username %> </h1>    
+    </div>
+<div  class="user-card letter-page-card">
+    <h2>Lorem ipsum dolor sit amet nsndcoinoeefoeornofnonoinoerfrevn</h2>
+</div>
+<div  class="user-card letter-page-card">
+    <h2>Lorem ipsum dolor sit amet nsndcoinoeefoeornofnonoinoerfrevn</h2>
+</div>
+
+</div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <form action="/logout" method="post">
 <button type="submit" class="btn btn-primary"> logout </button>
 </form>
+
 
 
 <%- include("./partials/footer.ejs") -%>
