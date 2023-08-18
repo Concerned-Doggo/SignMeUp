@@ -6,13 +6,24 @@
 
     <div class="user-card letter-page-card">
         <img src="/images/person/man.png">
-        <h1 style="color:white;"><%= username %> </h1>    
+        <h1 style="color:black;"><%= username %> </h1>    
+        
+        <div class="grid-btns"> 
+           <button class="btn btn-primary">Edit Profile </button>
+
+          <form action="/logout" method="post">
+          <button type="submit" class="btn btn-primary"> logout </button> 
+          </form>
+
+        </div>
+       
     </div>
 <div  class="user-card letter-page-card">
-    <h2>Lorem ipsum dolor sit amet nsndcoinoeefoeornofnonoinoerfrevn</h2>
+    <h1>Achievements</h1>
+    <h2>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, qui minim labore adipisicing minim </h2>
 </div>
-<div  class="user-card letter-page-card">
-    <h2>Lorem ipsum dolor sit amet nsndcoinoeefoeornofnonoinoerfrevn</h2>
+<div  class="user-card letter-page-card span-2">
+    <h2>Lorem ipsum dolor sit amet </h2>
 </div>
 
 </div>    
@@ -28,11 +39,6 @@
 
 
 
-
-
-<form action="/logout" method="post">
-<button type="submit" class="btn btn-primary"> logout </button>
-</form>
 
 
 

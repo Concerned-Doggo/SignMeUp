@@ -1,11 +1,23 @@
 .user-card img{
-    height:15rem;
+  height:15rem;
+  margin-bottom: 12px;
 }
 
 .user-grid{
     display:grid;
     grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
     margin: 0 15% 0 12%;
     
+}
+
+.span-2{
+  grid-column: span 2;
+}
+
+.grid-btns{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(50px, 1fr));
 }
