@@ -1,6 +1,9 @@
 <%- include("./partials/header.ejs") -%>
 <%- include("./partials/navbar.ejs") -%>
 
+<progress value="70" max="100"  id="prog-bar"></progress>
+
+
 <div class="letter-grid">
         
     <% letterArray.forEach(letter => { %>
@@ -13,6 +16,24 @@
     <% }); %>
 
 </div>
+
+<script>
+const scroller = document.body;
+
+const progbar = document.getElementById("prog-bar");
+
+
+const progress = document.querySelector("progress");
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+window.addEventListener('scroll', () => {
+    console.log(progbar.getBoundingClientRect().y);
+    const scrollTop =
+    document.body.scrollTop || document.documentElement.scrollTop;
+    progress.value = ((scrollTop / height) * 100) ;
+    });
+
+
+</script>
 
 <%- include("./partials/footer.ejs") -%>
 

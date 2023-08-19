@@ -97,54 +97,6 @@ const shuffle = function (array) {
 
   return array;
 }
-// const generateOptions = function(array, options){
-//   let i = array[0];
-//   let optionRow = ['-1', '-1', '-1', '-1'];
-// // creating "random answer index" to store in optionRow  since we will only have 4 options 
-// // we multiply by 4 so that we get index between 0-3;
-//   const ansIndex = Math.floor(Math.random() * optionRow.length);
-//   optionRow[ansIndex] = array[i];
-
-//   for(let j = 0; j < 3; j++){
-//     // creating random option indexes
-//     let optionIndex = Math.floor(Math.random() * optionRow.length);
-
-//     // making sure the  optionIndex is not already filled 
-//     while(optionRow[optionIndex] !== '-1'){
-//       optionIndex = Math.floor(Math.random() * optionRow.length);
-//       if(optionRow[optionIndex] === '-1') break;
-//     }
-
-
-//     let arrOption = Math.floor(Math.random() * array.length);
-//     while (arrOption === i) {
-//       arrOption = Math.floor(Math.random() * array.length);
-//       if (arrOption !== i) break;
-//     }
-//     optionRow[optionIndex] = array[arrOption];
-
-//   }//for loop end of j < 3
-
-//   for(let i = 0; i < array.length; i++){
-
-//     options.push(optionRow);
-//   }
-//   console.log(options);
-//   return options;
-// }
-
-// const generateOptions = function(array, options){
-//   for(let i = 0; i < array.length; i++){
-//     let optionRow = [-1, -1, -1, -1];
-//     optionRow[0] = array[i];
-//     optionRow[1] = array[Math.floor(Math.random()+1) % array.length];
-//     optionRow[2] = array[Math.floor(Math.random()+2) % array.length];
-//     optionRow[3] = array[Math.floor(Math.random()+3) % array.length];
-//     shuffle(optionRow);
-//     options.push(optionRow);
-//   }//forloop end
-// return options;
-// }
 
 let letterArray = [];
 let options = [];
