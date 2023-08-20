@@ -18,6 +18,7 @@
     
     grid-template-columns: 1fr 1fr;
     padding: 3rem;
+    padding-left: 5rem;
     color: #EEEEEE;
     gap: 1rem;
 }
@@ -52,6 +53,7 @@
     height: 1fr;
     border-radius: 35px;
     padding: 1.5rem;
+
 }
 
 .card img{
@@ -60,9 +62,9 @@
 .person-card-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
-    'img name'
-    'img socials';
+  grid-template-areas: 
+    'img socials'
+    'name socials';
 }
 
 .card-grid > img{
@@ -70,7 +72,8 @@
 }
 
 .person-img{
-    height: 150px !important;
+    height: 150px;
+    
 }
 
 /* .socials-img{ */
@@ -78,15 +81,29 @@
     /* gap: 1rem; */
 /* } */
 
-.card-grid > img{
+.person-card-grid > img{
     grid-area: img;
 }
-.card-grid > h3{
+.person-card-grid > h3{
     grid-area: name;
 }
-.card-grid > .socials-img{
+.person-card-grid > .socials-img{
     grid-area: socials;
 }
+
+
+
+
+.socials-img-div{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+
+
+
 
 @media screen and (max-width: 950px){
     
@@ -95,6 +112,7 @@
         'header header'
         'image image'
         'paragraph paragraph';
+        padding: 2.5rem;
     }
     .card-grid{
         grid-template-areas: 
@@ -108,5 +126,12 @@
     #person-grid {
         grid-template-columns: repeat(auto-fill, 100%);
     }   
-    
+.person-card-grid{
+     grid-template-areas: 
+    'img name'
+    'img socials';
+ }
+ /* .socials-img-div{ */
+ /*    /* flex-direction: row; */ 
+ /*  }    */
 }

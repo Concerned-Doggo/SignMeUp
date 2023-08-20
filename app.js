@@ -170,8 +170,29 @@ app.get("/aboutus", (req, res) => {
  
   let username = ""; 
   if(req.user) username = req.user.username;
+  
+  const profile = [{
+    name: "Harshal Chavan",
+    github: "Concerned-Doggo ",
+    linkedIn: "ajinkya-birari-25566b229",
+  }, 
+    {
+    name: "Ajinkya Birari",
+    github: "awkward-raccoon",
+    linkedIn: "ajinkya-birari-25566b229",
+    },
+    {
+      name: "Abhay Pandey",
+    github: "AP2290",
+    linkedIn: "ajinkya-birari-25566b229",
+    },
+    {
+      name: "Atharva Aurangabadkar",
+    github: "Atharva0825",
+    linkedIn: "atharv-aurangabadkar-a24373289",
+    }];
 
- res.render("aboutus", {loggedIn: loggedIn, username: username});
+ res.render("aboutus", {loggedIn: loggedIn, username: username, profile: profile});
 });
 
 app.get("/letter/:customeUrl", (req, res) => {
@@ -256,6 +277,10 @@ app.post('/logout', function(req, res, next){
     if (err) { return next(err); }
     res.redirect('/');
   });
+});
+
+app.get("/edit", (req, res) => {
+  res.render("editProfile")
 });
 
 app.listen(port, (req, res) => {

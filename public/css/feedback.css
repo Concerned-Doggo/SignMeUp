@@ -36,6 +36,7 @@
   } */
 .feedback-main-container{
   padding: 4%;
+  padding-top: 0;
 }
 .feedback-main-container{
     display: flex;

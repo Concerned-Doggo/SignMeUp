@@ -1,6 +1,10 @@
 <%- include("./partials/header.ejs") -%>
 <%- include("./partials/navbar.ejs") -%>
 
+<progress value="0" max="100"  class="prog-bar"></progress>
+
+<div class="nav-filler-div" ></div>
+
     <div class="letter-grid">
 
       <% for(let i = 0; i < 7; i += 2){ %>
@@ -38,5 +42,6 @@
   }
 </script>
 
+<script src="/scripts/progressBar.js"></script>
 
 <%- include("./partials/footer.ejs") -%>

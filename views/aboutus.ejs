@@ -1,6 +1,7 @@
 <%- include("./partials/header.ejs") -%>
 <%- include("./partials/navbar.ejs") -%>
 
+<div class="nav-filler-div"></div>
 
     <div id="aboutus-container">
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio asperiores ex voluptas ma</h1>
@@ -13,73 +14,31 @@
     
 
     <div id="person-grid">
+      
+   <% profile.forEach( (person) =>{ %>
+
+
         <div class="person-card person-card-grid">
             <img src="/images/person/man.png" alt="harshal" class="person-img">
-            <h3>Harshal Chavan</h3>
+            <h3> <%= person.name%> </h3>
             
             <div class="socials-img-div">
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/github.png" alt="github link" class="socials-img">
+            <a href="https://github.com/<%=person.github %>">
+                <img src="/images/socials/github.png" alt="github link" class="socials-img"><%=person.github %>
+            </a>
+            <a href="https://www.linkedin.com/in/<%=person.linkedIn%>">
+                <img src="/images/socials/linkedin.png" alt="linkedin link" class="socials-img"><%= person.linkedIn %>
             </a>
             <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/linkedin.png" alt="linkedin link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/youtube.png" alt="youtube link" class="socials-img">
+                <img src="/images/socials/resume.png" alt="youtube link" class="socials-img">
             </a>
 
             </div>
         </div>
 
-        <div class="card card-grid">
-            <img src="/images/person/man.png" alt="ajinkya" class="person-img">
-            <h3>Ajinkya Birari</h3>
-            <div class="socials-img-div">
 
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/github.png" alt="github link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/linkedin.png" alt="linkedin link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/youtube.png" alt="youtube link" class="socials-img">
-            </a>
- 
-            </div>
-       </div>
-        <div class="card card-grid">
-            <img src="/images/person/man.png" alt="atharva" class="person-img">
-            <h3>Atharva Aurangabadkar</h3>
-            <div class="socials-img-div">
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/github.png" alt="github link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/linkedin.png" alt="linkedin link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/youtube.png" alt="youtube link" class="socials-img">
-            </a>
-            </div>
-
-        </div>
-        <div class="card card-grid">
-            <img src="/images/person/man.png" alt="abhay" class="person-img">
-            <h3>Abhay Pandey</h3>
-            <div class="socials-img-div">
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/github.png" alt="github link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/linkedin.png" alt="linkedin link" class="socials-img">
-            </a>
-            <a href="https://github.com/Concerned-Doggo">
-                <img src="/images/socials/youtube.png" alt="youtube link" class="socials-img">
-            </a>
- 
-            </div>
-       </div>
+        <% }) %>
+    
 
     </div>
 

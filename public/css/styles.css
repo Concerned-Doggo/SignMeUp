@@ -12,7 +12,23 @@ html, body{
 a{
   text-decoration: none;
 }
+/*-------------------------------------------- progress bar-----------------------------------------*/
+.prog-bar{
+  position: fixed;
+  top: 60px;
+  z-index: 1000;
+  width: 100%;
+}
+
+/*-------------------------------------------- progress bar-----------------------------------------*/
 /*--------------------------------------------navigation bar-----------------------------------------*/
+
+.nav-filler-div{
+  height: 120px;
+}
+
+
+
 .nav-center{
   margin-left: 35%;
   font-weight: bold;
@@ -22,6 +38,8 @@ nav.full-nav{
   background-color: #393E46 !important;
   color: #EEEEEE;
   margin-bottom: 2.5rem;
+  position: fixed;
+  width: 100%;
 }
 h2.logo-name{
   color: #00ADB5;
@@ -168,6 +186,11 @@ footer a{
   }
 
 }
+@media (max-width: 406px){
+  .prog-bar{
+    top: 90px;
+  }
+}
 
 @media (max-width: 650px){
   .letter-page-card{
@@ -195,6 +218,5 @@ footer a{
     color: #00ADB5;
   }
 }
-
 
 

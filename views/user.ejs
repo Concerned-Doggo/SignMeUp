@@ -1,6 +1,8 @@
 <%- include("./partials/header.ejs") -%>
 <%- include("./partials/navbar.ejs") -%>
 
+<div class="nav-filler-div"></div>
+
 
 <div class="user-grid">
 
@@ -9,7 +11,9 @@
         <h1 style="color:black;"><%= username %> </h1>    
         
         <div class="grid-btns"> 
+          <form action="/edit" method="get">
            <button class="btn btn-primary">Edit Profile </button>
+          </form>
 
           <form action="/logout" method="post">
           <button type="submit" class="btn btn-primary"> logout </button> 
