@@ -1,6 +1,16 @@
+<%- include("./partials/header.ejs") -%>
+<%- include("./partials/navbar.ejs") -%>
+
 <div class="nav-filler-div"></div>
 
 
+<form action="/edit" method="post"> 
+
 <label for="change username">Change username</label>
-<input type="text">
-<h1>change username </h1>
+<input type="text" value="<%=username%>" placeholder="<%=username%>" name="newUsername">
+<input value="<%=username%>" name="username" style="display:none">
+<button type=submit>Update</button>
+
+
+</form>
+<%- include("./partials/footer.ejs") -%>

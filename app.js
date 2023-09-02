@@ -280,8 +280,31 @@ app.post('/logout', function(req, res, next){
 });
 
 app.get("/edit", (req, res) => {
-  res.render("editProfile")
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+  res.render("editProfile",{username: username, loggedIn: loggedIn})
 });
+
+app.post("/edit", (req, res) => {
+  const newUsername = req.body.newUsername;
+  const prevUsername = req.body.username;
+  if(prevUsername != newUsername){
+    User.findOneAndUpdate({username: prevUsername}, {username: newUsername})
+      .then(found =>{
+      if(err) console.log(err);
+      else if(found){
+        console.log("done");
+      }
+    })
+      .catch(err => console.log(err));
+  }
+
+  res.redirect("/");
+})
 
 app.listen(port, (req, res) => {
   console.log(`server is runnig on port ${port}`);
