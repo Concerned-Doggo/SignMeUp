@@ -285,8 +285,7 @@ app.get("/edit", (req, res) => {
 
   let username = ""; 
   if(req.user) username = req.user.username;
-
-  res.render("editProfile",{username: username, loggedIn: loggedIn})
+  res.render("editProfile",{username: username, password: password, loggedIn: loggedIn})
 });
 
 app.post("/edit", (req, res) => {

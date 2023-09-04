@@ -13,4 +13,15 @@
 
 
 </form>
+
+
+<form action="/edit" method="post"> 
+
+    <label for="change password">Change password</label>
+    <input type="text" value="<%=password%>" placeholder="<%=password%>" name="newpassword">
+    <input value="<%=password%>" name="password" style="display:none">
+    <button type=submit>Update</button>
+    
+    
+    </form>
 <%- include("./partials/footer.ejs") -%>
