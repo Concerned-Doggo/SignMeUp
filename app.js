@@ -295,10 +295,7 @@ app.post("/edit", (req, res) => {
   if(prevUsername != newUsername){
     User.findOneAndUpdate({username: prevUsername}, {username: newUsername})
       .then(found =>{
-      if(err) console.log(err);
-      else if(found){
         console.log("done");
-      }
     })
       .catch(err => console.log(err));
   }
