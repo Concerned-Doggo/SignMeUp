@@ -174,7 +174,7 @@ app.get("/aboutus", (req, res) => {
   const profile = [{
     name: "Harshal Chavan",
     github: "Concerned-Doggo ",
-    linkedIn: "ajinkya-birari-25566b229",
+    linkedIn: "harshal-chavan-20129324b",
   }, 
     {
     name: "Ajinkya Birari",
@@ -184,7 +184,7 @@ app.get("/aboutus", (req, res) => {
     {
       name: "Abhay Pandey",
     github: "AP2290",
-    linkedIn: "ajinkya-birari-25566b229",
+    linkedIn: "abhay-pandey-583337269",
     },
     {
       name: "Atharva Aurangabadkar",
@@ -284,8 +284,11 @@ app.get("/edit", (req, res) => {
   req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
 
   let username = ""; 
-  if(req.user) username = req.user.username;
-  res.render("editProfile",{username: username, password: password, loggedIn: loggedIn})
+  if(req.user) {
+    password = req.user.password;
+    username = req.user.username;
+  }
+  res.render("editProfile",{username: username, loggedIn: loggedIn})
 });
 
 app.post("/edit", (req, res) => {
@@ -301,6 +304,21 @@ app.post("/edit", (req, res) => {
 
   res.redirect("/");
 })
+
+app.get("/blog", (req, res) => {
+ 
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+
+
+
+  res.render("composeBlog", {username: username, loggedIn: loggedIn});
+})
+
+
 
 app.listen(port, (req, res) => {
   console.log(`server is runnig on port ${port}`);

@@ -23,7 +23,23 @@
 }
 
 
-label.user-label{
+.user-label{
   color: #EEEEEE;
 
+}
+
+.edit-card{
+  flex-direction: row;
+  gap:15px;
+}
+
+.update-button{
+  background-color: #393E46;
+  color: #EEEEEE;
+  border-radius: 35px;
+  padding: 1%;
+}
+
+.update-button:hover{
+  color: #00ADB5;
 }

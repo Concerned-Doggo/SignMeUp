@@ -5,23 +5,14 @@
 
 
 <form action="/edit" method="post"> 
+<div class="edit-card letter-page-card">
 
-<label for="change username" class="user-label">Change username</label>
+<label for="change username" >Change username:</label>
 <input type="text" value="<%=username%>" placeholder="<%=username%>" name="newUsername">
 <input value="<%=username%>" name="username" style="display:none">
-<button type=submit>Update</button>
+<button type="submit" class="update-button">Update</button>
 
-
+</div>
 </form>
 
-
-<form action="/edit" method="post"> 
-
-    <label for="change password">Change password</label>
-    <input type="text" value="<%=password%>" placeholder="<%=password%>" name="newpassword">
-    <input value="<%=password%>" name="password" style="display:none">
-    <button type=submit>Update</button>
-    
-    
-    </form>
 <%- include("./partials/footer.ejs") -%>
