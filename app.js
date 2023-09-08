@@ -46,12 +46,39 @@ const userSchema = mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
+const User = mongoose.model("User", userSchema);
 
 
+
+const blogSchema = mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  blog : {
+    title: String,
+    body: String,
+  },
+});
+
+const Blog = mongoose.model("Blog", blogSchema);
+
+const blog1 = new Blog({
+  userId: "64f6bf84fa57f3e023501af6",
+  blog: {
+    title: "blog1",
+    body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+  }
+ });
+
+const blog2 = new Blog({
+  userId: "64f55586bda46f549ceeb82c",
+  blog: {
+    title: "Lorem Ipsum Blog",
+    body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+  }
+})
+// blog2.save();
 // model for question schema
 // const Question = new mongoose.model("Question", questionSchema);
 
-const User = mongoose.model("User", userSchema);
 
 // inititalizing passport for our User model
 passport.use(User.createStrategy());
@@ -175,7 +202,7 @@ app.get("/aboutus", (req, res) => {
     name: "Harshal Chavan",
     github: "Concerned-Doggo ",
     linkedIn: "harshal-chavan-20129324b",
-  }, 
+    }, 
     {
     name: "Ajinkya Birari",
     github: "awkward-raccoon",
@@ -313,9 +340,16 @@ app.get("/blog", (req, res) => {
   let username = ""; 
   if(req.user) username = req.user.username;
 
-
-
-  res.render("composeBlog", {username: username, loggedIn: loggedIn});
+  Blog.find()
+    .then(blogs => {
+      // console.log(blogs)
+      // const pblog = Blog.find({})
+      // const populatedBlogs = Blog.find({}).populate('userId').exec();
+      // console.log("populatedBlogs");
+      // console.log(populatedBlogs.userId.username);
+      res.render("blog", {username: username, loggedIn: loggedIn, blogs: blogs});
+    })
+    .catch(err => console.log(err));
 })
 
 

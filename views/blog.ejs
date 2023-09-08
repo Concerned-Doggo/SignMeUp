@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') -%>
+<%- include('./partials/navbar.ejs') -%>
+
+<div class="nav-filler-div"></div>
+
+  <% blogs.forEach(blog => { %>
+        <div class="one-card">
+          <h1> <%= blog.blog.title %> </h1>
+          <p> <%= blog.blog.body %> </p>
+          <p> Posted by: <%= blog.userId %> </p>
+        </div>
+      <% }) %>  
+
+
+<%- include('./partials/footer.ejs') -%>
+
