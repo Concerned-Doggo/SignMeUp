@@ -1,0 +1,32 @@
+<%-include('./partials/header.ejs') -%>
+<%-include('./partials/navbar.ejs') -%>
+
+<div class="nav-filler-div"></div>
+
+<div class="letter-page-card">
+<form action="/text-to-sign" method="post">
+
+  <h2>Text to Sign</h2>
+  <input  name="input"/>
+  <button type="submit" class="register-btn">submit</button>
+  </form>
+</div>
+
+<div class="letter-grid">
+  <% for(let i = 0; i < inputs.length; i++){%>
+  <%if(inputs[i] !== " "){ %>
+      <div class="letter-page-card">
+            <img src="/images/letters/<%= inputs[i] %>.png" alt="" style="height: 100px;">
+            <video width="200" height="200" controls>
+            <source src="/videos/<%= inputs[i] %>.mp4" type="">
+          </video>
+        </div>
+
+
+ <% } %>
+      <% }  %>
+</div>
+
+
+<%-include('./partials/footer.ejs') -%>
+

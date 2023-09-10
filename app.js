@@ -88,6 +88,13 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+const isLoggedIn = (req) => {
+  let loggedIn = 0;
+  req.isAuthenticated() ? loggedIn = 1 : loggedIn = 0;
+
+  let username = ""; 
+  if(req.user) username = req.user.username;
+}
 
 
 
@@ -246,17 +253,17 @@ app.get("/attributions", (req, res) => {
 });
 
 
-app.get("/quiz/:customUrl", (req, res) => {
-  const customUrl = req.params.customUrl;
-  letterArray = switchFunc(customUrl);
-  shuffle(letterArray);
-
-  let options = [];
-  generateOptions(letterArray,options)
-
-  res.sendFile(__dirname + "/public/html/temp-quiz.html");
-});
-
+// app.get("/quiz/:customUrl", (req, res) => {
+//   const customUrl = req.params.customUrl;
+//   letterArray = switchFunc(customUrl);
+//   shuffle(letterArray);
+//
+//   let options = [];
+//   generateOptions(letterArray,options)
+//
+//   res.sendFile(__dirname + "/public/html/temp-quiz.html");
+// });
+//
 
 
 app.get("/register", (req,res) => {
@@ -339,7 +346,6 @@ app.get("/blog", (req, res) => {
 
   let username = ""; 
   if(req.user) username = req.user.username;
-
   Blog.find()
     .then(blogs => {
       // console.log(blogs)
@@ -350,8 +356,15 @@ app.get("/blog", (req, res) => {
       res.render("blog", {username: username, loggedIn: loggedIn, blogs: blogs});
     })
     .catch(err => console.log(err));
-})
+});
 
+app.get("/text-to-sign", (req, res) => {
+  res.render("text-to-sign", {username: "", loggedIn: 0, inputs: ""})
+})
+app.post("/text-to-sign", (req, res) => {
+
+  res.render("text-to-sign", {username: "", loggedIn: 0, inputs: req.body.input});
+})
 
 
 app.listen(port, (req, res) => {

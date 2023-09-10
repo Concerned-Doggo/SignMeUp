@@ -14,7 +14,8 @@
           </p>
         </div>
 
-        <div class="one-card">
+        <div class="one-card" onclick="TextToSignJS()">
+          <h2>Text to Sign</h2>
           <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
             pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
           </p>
@@ -44,6 +45,9 @@
   <script>
     function letterPageJS() {
       window.location.assign("/letter")
+    }
+    function TextToSignJS() {
+      window.location.assign("/text-to-sign")
     }
   </script>
 <%- include("./partials/footer.ejs") -%>
