@@ -3,24 +3,33 @@
 /* greyish:  #393E46; */
 /* turquoiseType: #00ADB5; */
 /* lightblue */
-
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Catamaran:wght@300;400&family=Roboto+Mono&display=swap');
+/* font-family: 'Catamaran', sans-serif; */
+/* font-family: 'Audiowide', cursive; */
+/* font-family: 'Catamaran', sans-serif; */
+/* font-family: 'Roboto Mono', monospace; */
+/**/
+/* #49E65E */
+/* #47EDB1 */
+/* #4AC4D6 */
+/* #4789ED */
+/* #574CE6 */
+/**/
+/* @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Catamaran:wght@300;400&family=Roboto+Mono&display=swap'); */
 
 :root{
-  --background-color: #F7FBFC;
-  --secondary-color: #769FCD;
+  --background-color: #EAFDFC;
+  --secondary-color: #91D8E4;
   --title-color: #F7FBFC;
-  --card-color: #D6E6F2;
+  --card-color: #82AAE3;
   --text-color: #393E46;
 }
 
+* {
+  font-family: 'Catamaran', sans-serif;
+ }
 
 html, body{
   background-color: var(--background-color) !important;
-    font-family: 'Catamaran', sans-serif;
-  font-family: 'Audiowide', cursive;
-font-family: 'Catamaran', sans-serif;
-font-family: 'Roboto Mono', monospace;
 }
 a{
   text-decoration: none;
@@ -231,5 +240,3 @@ footer a{
     color: var(--title-color);
   }
 }
-
-
