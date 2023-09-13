@@ -75,6 +75,7 @@ h2.logo-name{
 a.nav-center-text{
   font-size: 1.3rem;
   color: #EEEEEE;
+  transition: transform 0.3s ease 0s;
 }
 .socials{
   text-decoration: none;
@@ -227,8 +228,7 @@ footer a{
   a.nav-center-text:hover {
     color: var(--title-color);
     transition-duration: 0.5s;
-    font-size: 1.5rem;
-    font-weight: bold;
+    transform: translateY(-6px);
   }
   .register-btn:hover {
     transition-duration: 0.5s;
