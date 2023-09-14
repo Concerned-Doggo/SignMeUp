@@ -17,6 +17,30 @@
 /**/
 /* @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Catamaran:wght@300;400&family=Roboto+Mono&display=swap'); */
 
+
+/* utility classes */
+/* Animation */
+@keyframes slideinleft{
+
+  from{
+    transform: translateX(-300px);
+
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+.slideinleft{
+  animation: 1s ease-in 1s slideinleft;
+}
+
+
+
+
+
+
+
+
 :root{
   --background-color: #DFF6FF;
   --secondary-color: #60ABFB;
