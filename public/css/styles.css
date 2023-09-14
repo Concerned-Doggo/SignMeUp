@@ -13,14 +13,15 @@
 /* #4AC4D6 */
 /* #4789ED */
 /* #574CE6 */
+/* #5F9DF7 */
 /**/
 /* @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Catamaran:wght@300;400&family=Roboto+Mono&display=swap'); */
 
 :root{
-  --background-color: #EAFDFC;
-  --secondary-color: #91D8E4;
-  --title-color: #F7FBFC;
-  --card-color: #82AAE3;
+  --background-color: #DFF6FF;
+  --secondary-color: #60ABFB;
+  --title-color: #F7FBFC;;
+  --card-color: #60ABFB;
   --text-color: #393E46;
 }
 
