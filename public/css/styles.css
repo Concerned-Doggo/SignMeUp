@@ -21,17 +21,23 @@
 /* utility classes */
 /* Animation */
 @keyframes slideinleft{
-
   from{
     transform: translateX(-300px);
-
   }
   to{
     transform: translateX(0);
   }
 }
 .slideinleft{
-  animation: 1s ease-in 1s slideinleft;
+  animation: 1s ease-in 0s slideinleft;
+}
+
+.bounce{
+  transition: transform 0.3s;
+}
+
+.bounce:hover{
+  transform: translateY(-6px);
 }
 
 
@@ -70,6 +76,10 @@ a{
 /*-------------------------------------------- progress bar-----------------------------------------*/
 /*--------------------------------------------navigation bar-----------------------------------------*/
 
+.logo-img{
+  height: 50px;
+  padding-right: 3%;
+}
 .nav-filler-div{
   height: 120px;
 }
@@ -105,6 +115,7 @@ a.nav-center-text{
 .socials{
   text-decoration: none;
   color: #EEEEEE;
+  transition: transform 3ms;
 }
 /*--------------------------------------------navigation bar-----------------------------------------*/
 /*-------------------------------------------- index grid -----------------------------------------*/
@@ -252,8 +263,6 @@ footer a{
 @media (hover: hover) {
   a.nav-center-text:hover {
     color: var(--title-color);
-    transition-duration: 0.5s;
-    transform: translateY(-6px);
   }
   .register-btn:hover {
     transition-duration: 0.5s;

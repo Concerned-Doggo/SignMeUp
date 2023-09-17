@@ -1,28 +1,28 @@
  <nav class="full-nav      navbar navbar-expand-lg bg-body-tertiary ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><h2 class="logo-name">SignMeUp!</h2></a>
+        <a class="navbar-brand" href="/"><h2 class="bounce logo-name"><img class="logo-img " src="/images/transparent-logo-1.png" />SignMeUp!</h2></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="nav-center      navbar-nav ">
-            <a class="nav-center-text    nav-link " aria-current="page" href="/">Home</a>
-            <a class="nav-center-text    nav-link" href="/feedback">Feedback</a>
-            <a class="nav-center-text    nav-link" href="/aboutus">About Us</a>
+            <a class="bounce nav-center-text    nav-link " aria-current="page" href="/">Home</a>
+            <a class="bounce nav-center-text    nav-link" href="/feedback">Feedback</a>
+            <a class="bounce nav-center-text    nav-link" href="/aboutus">About Us</a>
           </div>
         </div>
         <div class="nav-left">
         <% if( loggedIn ){ %>
 
 
-          <a  class="socials" href="/user/username"><img  class="socials-img" src="/images/login.png" alt="<%= username %>"><%= username %></a>
+          <a  class="socials bounce" href="/user/username"><img  class="socials-img" src="/images/login.png" alt="<%= username %>"><%= username %></a>
 
 
 
         <% }   else { %>
 
-          <a class="socials" href="/register" ><img  class="socials-img"src="/images/register.png" alt="register">Register</a>
-          <a  class="socials" href="/login"><img  class="socials-img" src="/images/login.png" alt="login">Login</a>
+          <a class=" bounce socials" href="/register" ><img  class="socials-img bounce"src="/images/register.png" alt="register">Register</a>
+          <a  class=" bounce socials" href="/login"><img  class="socials-img bounce" src="/images/login.png" alt="login">Login</a>
 
 
 
@@ -31,5 +31,3 @@
         </div>
       </div>
     </nav>
-
-
