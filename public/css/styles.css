@@ -29,7 +29,7 @@
   }
 }
 .slideinleft{
-  animation: 1s ease-in 0s slideinleft;
+  animation: 1s ease-ins slideinleft;
 }
 
 .bounce{
@@ -217,14 +217,14 @@ footer a{
   gap: 30%;
   justify-content: center;
 }
-
-#footer-img img:hover{
-  height: 60px;
-  width: 60px;
-}
+/**/
+/* #footer-img img:hover{ */
+/*   height: 60px; */
+/*   width: 60px; */
+/* } */
 
 /*-------------------------------------------- footer  -----------------------------------------*/
-/*-------------------------------------------- footer  -----------------------------------------*/
+/*-------------------------------------------- register  -----------------------------------------*/
 
 .register-card{
   gap: 10px;
@@ -243,7 +243,6 @@ footer a{
   h2.logo-name{
     margin-right: 50%;
   }
-
 }
 @media (max-width: 428px){
   .prog-bar{

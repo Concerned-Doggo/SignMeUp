@@ -1,0 +1,30 @@
+@import url("styles.css");
+@import url("features.css");
+@import url("quiz.css");
+@import url("user.css");
+@import url("aboutus.css");
+
+
+@keyframes slideInLeft {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0px);
+  }
+}
+
+.slideInLeft{
+  animation: slideInLeft 1s ease-in;
+}
+
+
+.rotate--10{
+  transition: transform 1000ms;
+}
+.rotate--10:hover{
+  transform: rotate(10deg);
+  transition: transform 250ms;
+}
+
+
