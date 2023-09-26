@@ -264,7 +264,9 @@ app.get("/attributions", (req, res) => {
 //
 //   res.sendFile(__dirname + "/public/html/temp-quiz.html");
 // });
-//
+// app.get("/quiz", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
 app.get("/register", (req, res) => {
   res.render("register", { loggedIn: 0, username: "" });

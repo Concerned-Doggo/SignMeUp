@@ -19,7 +19,7 @@
     grid-template-columns: 1fr 1fr;
     padding: 3rem;
     padding-left: 5rem;
-    color: #EEEEEE;
+    color: var(--text-color);
     gap: 1rem;
 }
 
@@ -33,7 +33,7 @@
 
 #aboutus-container > h1{
     font-size: 2rem;
-    color: #00ADB5;
+    color: var(--secondary-color);
     grid-area: header;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .person-card{
-    background-color: lightblue;
+    background-color: #60ABFB;
     height: 1fr;
     border-radius: 35px;
     padding: 1.5rem;

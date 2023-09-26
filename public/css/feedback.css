@@ -1,12 +1,12 @@
 @import "./styles.css";
 
 #feedback-h1{
-    color: #00ADB5;
+    color: var(--secondary-color);
     align-self: flex-start;
 }
 
 #feedback-h2{
-    color:#EEEEEE; 
+    color:var(--text-color); 
 }
 
 .feedback-container{
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    color: #EEEEEE;
+    color: var(--text-color);
     padding-top: 8%;
 }
 .par-div{
@@ -47,9 +47,9 @@
 .submit-button{
   border-radius: 35px;
   margin-top: 5%;
-  background-color: #00ADB5;
+  background-color: var(--secondary-color);
   padding: 1% 2% ;
-  border: 1px solid #393E46;
+  /* border: 1px solid #393E46; */
 }
 
 
