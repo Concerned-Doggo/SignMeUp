@@ -58,9 +58,11 @@
 :root{
   --background-color: #DFF6FF;
   --secondary-color: #60ABFB;
-  --title-color: #F7FBFC;;
+  --title-color: #F7FBFC;
   --card-color: #60ABFB;
   --text-color: #393E46;
+  --text-color-light: #EEEEEE;
+  --button-color: #112D4E;
 }
 
 * {

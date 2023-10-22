@@ -10,7 +10,7 @@
 }
 
 
-#aboutus-container{
+.aboutus-container{
     display: grid;
     grid-template-areas:
         'header image'
@@ -24,14 +24,14 @@
 }
 
 
-#aboutus-container > p {
+.aboutus-container > p {
     width: minmax(45ch, 70ch);
     font-size: 1rem;
     grid-area: paragraph;
 }
 
 
-#aboutus-container > h1{
+.aboutus-container > h1{
     font-size: 2rem;
     color: var(--secondary-color);
     grid-area: header;
@@ -107,7 +107,7 @@
 
 @media screen and (max-width: 950px){
     
-    #aboutus-container{
+    .aboutus-container{
         grid-template-areas:
         'header header'
         'image image'

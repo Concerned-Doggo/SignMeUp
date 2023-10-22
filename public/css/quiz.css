@@ -1,21 +1,32 @@
-.quiz-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
+.quiz-option-container {
+  display: grid;
+  grid-template-areas:
+    'video answer'
+    'video next-button';
+
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  padding-left: 5rem;
+  color: var(--text-color);
+  gap: 1rem;
 }
 
-
-.option-button{
-    color: white;
-    background-color: black;
-}
-.option-button:hover{
-    color: red;
-    background-color: azure;
+.quiz-option-container > #next-btn{
+  grid-area: next-button;
 }
 
-.complete-btn{
-  border-radius: 35px;
-  color: #EEEEEE;
-  background-color: yellow;
+.quiz-option-container > .answer{
+  grid-area: answer;
+}
+
+.quiz-option-container > .video-container{
+  grid-area: video;
+}
+
+.quiz-next-btn{
+  margin: 3rem;
+  color: var(--title-color);
+  background-color: var(--button-color);
+  border-radius: 45px;
+  width: minmax(500px, 1fr);
 }
