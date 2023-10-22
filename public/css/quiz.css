@@ -13,7 +13,9 @@
     color: red;
     background-color: azure;
 }
-#next-btn{
-    cursor: pointer;
-    display: none;
+
+.complete-btn{
+  border-radius: 35px;
+  color: #EEEEEE;
+  background-color: yellow;
 }

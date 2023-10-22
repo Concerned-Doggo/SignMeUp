@@ -32,7 +32,7 @@
         </div>
 
         <div class="one-card ">
-          <img src="/images/quiz.png" alt="" class="quiz-img rotate--10">
+          <img src="/images/quiz.png" alt="" class="quiz-img rotate--10" onclick="quizPageJS()">
           <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
             pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud .
           </p>
@@ -48,6 +48,9 @@
     }
     function TextToSignJS() {
       window.location.assign("/text-to-sign")
+    }
+    function quizPageJS() {
+      window.location.assign("/quiz")
     }
   </script>
 <%- include("./partials/footer.ejs") -%>

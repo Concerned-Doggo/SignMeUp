@@ -1,3 +1,11 @@
+@import "./quiz.css";
+@import "./user.css";
+@import "./aboutus.css";
+@import "./feedback.css";
+@import "./animations.css";
+@import "./AtoF.css";
+
+
 /* -----------------------------------color pallete used ---------------------------*/
 /* blackish : #222831; */
 /* greyish:  #393E46; */
@@ -235,10 +243,10 @@ footer a{
 
 .register-card{
   gap: 10px;
-  color: var(--secondary-color);
+  color: var(--title-color);
 }
 .register-btn {
-  background-color: var(--secondary-color);
+  background-color: var(--text-color);
   border-radius: 45px;
   border: 2px solid var(--secondary-color);
   padding: 0.6rem;

@@ -58,21 +58,21 @@ const blogSchema = mongoose.Schema({
 
 const Blog = mongoose.model("Blog", blogSchema);
 
-const blog1 = new Blog({
-  userId: "64f6bf84fa57f3e023501af6",
-  blog: {
-    title: "blog1",
-    body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
-  },
-});
-
-const blog2 = new Blog({
-  userId: "64f55586bda46f549ceeb82c",
-  blog: {
-    title: "Lorem Ipsum Blog",
-    body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
-  },
-});
+// const blog1 = new Blog({
+//   userId: "64f6bf84fa57f3e023501af6",
+//   blog: {
+//     title: "blog1",
+//     body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+//   },
+// });
+//
+// const blog2 = new Blog({
+//   userId: "64f55586bda46f549ceeb82c",
+//   blog: {
+//     title: "Lorem Ipsum Blog",
+//     body: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+//   },
+// });
 // blog2.save();
 // model for question schema
 // const Question = new mongoose.model("Question", questionSchema);
@@ -108,49 +108,49 @@ const switchFunc = function (customUrl) {
   }
   return letterArray;
 };
-const shuffle = function (array) {
-  let currentIndex = array.length,
-    randomIndex;
+// const shuffle = function (array) {
+//   let currentIndex = array.length,
+//     randomIndex;
+//
+//   // While there remain elements to shuffle.
+//   while (currentIndex != 0) {
+//     // Pick a remaining element.
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
+//
+//     // And swap it with the current element.
+//     [array[currentIndex], array[randomIndex]] = [
+//       array[randomIndex],
+//       array[currentIndex],
+//     ];
+//   }
+//
+//   return array;
+// };
 
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-};
-
-let letterArray = [];
-let options = [];
-const generateOptions = function (array, options) {
-  // (i + constatn) % array.length
-
-  let n = array.length;
-  for (let i = 0; i < n; i++) {
-    let optionRow = [
-      { text: "a", correct: false },
-      { text: "a", correct: false },
-      { text: "a", correct: false },
-    ];
-    optionRow[0] = { text: array[i], correct: true };
-    optionRow[1] = { text: array[(i + 4) % n], correct: false };
-    optionRow[2] = { text: array[(i + 5) % n], correct: false };
-    shuffle(optionRow);
-    options.push(optionRow);
-  }
-  return options;
-};
-
-generateOptions([1], [1]);
-
+// let letterArray = [];
+// let options = [];
+// const generateOptions = function (array, options) {
+//   // (i + constatn) % array.length
+//
+//   let n = array.length;
+//   for (let i = 0; i < n; i++) {
+//     let optionRow = [
+//       { text: "a", correct: false },
+//       { text: "a", correct: false },
+//       { text: "a", correct: false },
+//     ];
+//     optionRow[0] = { text: array[i], correct: true };
+//     optionRow[1] = { text: array[(i + 4) % n], correct: false };
+//     optionRow[2] = { text: array[(i + 5) % n], correct: false };
+//     shuffle(optionRow);
+//     options.push(optionRow);
+//   }
+//   return options;
+// };
+//
+// generateOptions([1], [1]);
+//
 app.get("/", (req, res) => {
   let loggedIn = 0;
 
@@ -254,19 +254,14 @@ app.get("/attributions", (req, res) => {
   res.render("attributions", { loggedIn: loggedIn, username: username });
 });
 
-// app.get("/quiz/:customUrl", (req, res) => {
-//   const customUrl = req.params.customUrl;
-//   letterArray = switchFunc(customUrl);
-//   shuffle(letterArray);
-//
-//   let options = [];
-//   generateOptions(letterArray,options)
-//
-//   res.sendFile(__dirname + "/public/html/temp-quiz.html");
-// });
-// app.get("/quiz", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
+app.get("/quiz/:customUrl", (req, res) => {
+  const customUrl = req.params.customUrl;
+
+  res.sendFile(__dirname + `/public/html/${customUrl}.html`);
+});
+app.get("/quiz", (req, res) => {
+  res.sendFile(__dirname + "/public/html/a-f.html");
+});
 
 app.get("/register", (req, res) => {
   res.render("register", { loggedIn: 0, username: "" });
