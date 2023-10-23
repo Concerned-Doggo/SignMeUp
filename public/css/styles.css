@@ -63,6 +63,7 @@
   --text-color: #393E46;
   --text-color-light: #EEEEEE;
   --button-color: #112D4E;
+  --hover-state-button: #F9B572;
 }
 
 * {

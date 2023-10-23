@@ -65,7 +65,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 function startQuiz() {
-  videoElement.style.display = "block";
+  // videoElement.style.display = "block";
   score = 0;
   currentQuestionIndex = 0;
   nextButton.innerHTML = "Next";
@@ -89,7 +89,7 @@ function showQuestion() {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.dataset.correct = answer.correct;
-    button.classList.add("register-btn");
+    button.classList.add("option-btn");
     answerButtons.appendChild(button);
 
     button.addEventListener("click", () => {
@@ -116,7 +116,8 @@ function resetQuestion() {
 
 function showScore() {
   resetQuestion();
-  videoElement.style.display = "none";
+  // videoElement.style.display = "none";
+
   questionElement.innerHTML = `Your Score is ${score} Out Of ${questions.length}!`;
   nextButton.innerHTML = "Play Again!";
 }
