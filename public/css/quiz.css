@@ -55,3 +55,31 @@
 .option-btn:hover{
   background-color: var(--hover-state-button);
 }
+
+
+.correct-option{
+  background-color: lightgreen;
+}
+.incorrect-option{
+  background-color: lightred;
+}
+
+
+
+/********************************************* progress bar ***********************************************/
+.progress-bar-css{
+  display: flex;
+  margin: 1rem auto;
+  width: 70vw;
+  height: 2ch;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 20px;
+}
+
+progress::-moz-progress-bar, progress::-webkit-progress-bar{
+  background-color: green;
+  border-radius: 20px;
+}
