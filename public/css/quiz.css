@@ -94,15 +94,17 @@ progress::-moz-progress-bar, progress::-webkit-progress-bar{
   position: absolute;
   z-index: 1;
 
-  background-color: lightblue;
+  background-color: var(--background-color);
 
-  height: 200px;
-  width: 60vw;
+  height: 35vh;
+  width: 55vw;
   top: 25%;
-  left: 15%;
+  left: 23%;
 
 
   text-align: center;
+box-shadow: 0 10px 25px rgb(0 0 0 / 0.2);  
+  border-radius: 50px;
   
 
 }
@@ -110,4 +112,10 @@ progress::-moz-progress-bar, progress::-webkit-progress-bar{
 
 .none{
   display: none;
+}
+
+.score-hr{
+  height: 1px;
+  border-radius: 50px;
+  background-color: var(--text-color);
 }

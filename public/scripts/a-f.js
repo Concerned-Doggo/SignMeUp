@@ -142,9 +142,9 @@ function resetQuestion() {
 
 function scoreTitle() {
   if (score > questions.length - 3) {
-    return `Congratulations! Your Score is: ${score} out of ${questions.lenght} 🎉`;
+    return `Congratulations! Your Score is: ${score} out of ${questions.length} 🎉`;
   } else if (score < questions.length - 3 && score > 1) {
-    return `Your Score is: ${score} out of ${questions.lenght} 😃`;
+    return `Your Score is: ${score} out of ${questions.length} 😃`;
   } else {
     return `You just took a big Fat 🇱, Score: ${score}`;
   }
