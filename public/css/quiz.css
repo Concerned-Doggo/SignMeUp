@@ -83,3 +83,31 @@ progress::-moz-progress-bar, progress::-webkit-progress-bar{
   background-color: green;
   border-radius: 20px;
 }
+
+
+/********************************************* progress bar ***********************************************/
+
+
+/********************************************* score card ***********************************************/
+
+.score-card{
+  position: absolute;
+  z-index: 1;
+
+  background-color: lightblue;
+
+  height: 200px;
+  width: 60vw;
+  top: 25%;
+  left: 15%;
+
+
+  text-align: center;
+  
+
+}
+
+
+.none{
+  display: none;
+}

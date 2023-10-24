@@ -62,6 +62,9 @@ const nextButton = document.getElementById("next-btn");
 const videoElement = document.getElementById("video");
 const sourceElement = document.getElementById("source");
 const progressBar = document.getElementById("progress-bar-js");
+const scoreBoard = document.getElementById("scoreBoardJs");
+const scoreHeading = document.getElementById("score-heading");
+const playAgainButton = document.getElementById("playAgainJs");
 
 // setting max value for Progress Bar
 progressBar.max = questions.length;
@@ -128,19 +131,44 @@ function showQuestion() {
 }
 
 function resetQuestion() {
+  // removing scoreboard if placed previously
+  scoreBoard.classList.add("none");
+
   // removing the previous option buttons from answerBttons div
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 
+function scoreTitle() {
+  if (score > questions.length - 3) {
+    return `Congratulations! Your Score is: ${score} out of ${questions.length} 🎉`;
+  } else if (score < questions.length - 3 && score > 1) {
+    return `Your Score is: ${score} out of ${questions.length} 😃`;
+  } else {
+    return `You just took a big Fat 🇱, Score: ${score}`;
+  }
+}
+
 function showScore() {
   resetQuestion();
-  questionElement.innerText = `Your Score is ${score} Out Of ${questions.length}!`;
-  nextButton.innerText = "Play Again!";
+  // displaying scoreBoard
+  scoreBoard.classList.remove("none");
+  scoreBoard.classList.add("score-card");
+
+  scoreHeading.classList.remove("none");
+
+  scoreHeading.innerText = scoreTitle();
+  nextButton.classList.add("none");
+  // nextButton.innerText = "Play Again!";
 }
 
 function handleNextButtton() {
+  // console.log(videoElement.style.height);
+  // if (videoElement.style.height === "0px") {
+  //   console.log("in");
+  //   videoElement.style.height = "400px";
+  // }
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showQuestion();
@@ -148,6 +176,16 @@ function handleNextButtton() {
     showScore();
   }
 }
+
+playAgainButton.addEventListener("click", () => {
+  console.log("inside");
+  scoreBoard.classList.remove("score-card");
+  scoreBoard.classList.add("none");
+
+  nextButton.classList.remove("none");
+
+  startQuiz();
+});
 
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
