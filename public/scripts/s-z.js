@@ -73,6 +73,8 @@ const questions = [
   },
 ];
 
+const jsConfetti = new JSConfetti();
+
 // refrencing HTML DOM elements
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -152,6 +154,7 @@ function resetQuestion() {
   // removing scoreboard if placed previously
   scoreBoard.classList.add("none");
 
+  jsConfetti.clearCanvas();
   // removing the previous option buttons from answerBttons div
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
@@ -179,6 +182,20 @@ function showScore() {
   scoreHeading.innerText = scoreTitle();
   nextButton.classList.add("none");
   // nextButton.innerText = "Play Again!";
+
+  if (score > 4) {
+    jsConfetti.addConfetti({
+      confettiColors: [
+        "#ff0a54",
+        "#ff477e",
+        "#ff7096",
+        "#ff85a1",
+        "#fbb1bd",
+        "#f9bec7",
+      ],
+      emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
+    });
+  }
 }
 
 function handleNextButtton() {

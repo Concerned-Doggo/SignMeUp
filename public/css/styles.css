@@ -76,6 +76,10 @@ html, body{
 a{
   text-decoration: none;
 }
+
+img{
+  border-radius: 35px;
+}
 /*-------------------------------------------- progress bar-----------------------------------------*/
 .prog-bar{
   position: fixed;
