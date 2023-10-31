@@ -49,11 +49,11 @@
 }
 
 .person-card{
-    background-color: #60ABFB;
-    height: 1fr;
-    border-radius: 35px;
-    padding: 1.5rem;
-
+  background-color: #60ABFB;
+  height: 1fr;
+  border-radius: 35px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 8px -4px gray;
 }
 
 .card img{

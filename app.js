@@ -251,6 +251,9 @@ app.get("/attributions", (req, res) => {
   let username = "";
   if (req.user) username = req.user.username;
 
+  let loggedIn = 0;
+  req.isAuthenticated() ? (loggedIn = 1) : (loggedIn = 0);
+
   res.render("attributions", { loggedIn: loggedIn, username: username });
 });
 
