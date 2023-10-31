@@ -239,6 +239,12 @@ a.nav-center-text{
 
 /* -------------------------- person card ----------------------------- */
 
+.attribute-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0% 5%;
+}
+
 /*-------------------------------------------- footer -----------------------------------------*/
 
 #footer-container{
