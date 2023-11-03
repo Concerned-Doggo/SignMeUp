@@ -3,7 +3,7 @@
 
 <div class="nav-filler-div"></div>
 
-<div class="letter-page-card">
+<div class="letter-page-card" style="margin-bottom: 3%">
 <form action="/text-to-sign" method="post">
 
   <h2>Text to Sign</h2>
@@ -14,14 +14,23 @@
 
 <div class="letter-grid">
   <% for(let i = 0; i < inputs.length; i++){%>
-  <%if(inputs[i] !== " "){ %>
+
+  <%if(inputs === "done" || inputs === "student" || inputs === "bathroom" || inputs === "work" || inputs === "sister" || inputs === "sad" || inputs === "sleep" || inputs === "store" || inputs === "stroller" || inputs === "teacher" || inputs === "understand" || inputs === "where" || inputs === "who" || inputs ==="your" || inputs ==="rain" || inputs==="please" || inputs === "pacifier" || inputs === "name" || inputs === "mummy" || inputs === "more" || inputs==="jacket" || inputs ==="iloveyou" || inputs==="hug" || inputs==="home" || inputs==="help" || inputs==="hat" || inputs==="happy" || inputs==="grandpa" || inputs==="grandma" || inputs==="good" || inputs==="family" || inputs==="eat" || inputs ==="drink" || inputs==="done" || inputs === "dog" || inputs==="deaf" || inputs==="daddy" || inputs==="cat" || inputs==="car" || inputs==="bathroom" || inputs==="brother" || inputs==="ballroom" || inputs==="baby"){ %>
+       <div class="letter-page-card">
+            <h3> <%=inputs %> </h3>
+            <video width="200" height="200" controls>
+            <source src="/videos/<%= inputs %>.mp4" type="">
+          </video>
+        </div>
+        
+
+  <% break; } else if(inputs[i] !== " "){ %>
       <div class="letter-page-card">
-            <img src="/images/letters/<%= inputs[i] %>.png" alt="" style="height: 100px;">
+            <img src="/images/letters/<%= inputs[i] %>.png" alt="" style="height: 100px">
             <video width="200" height="200" controls>
             <source src="/videos/<%= inputs[i] %>.mp4" type="">
           </video>
         </div>
-
 
  <% } %>
       <% }  %>
